@@ -22911,7 +22911,7 @@ return new F.kK(new U.mW(M.Z4(t,t,new L.lX("images/nyan.gif",t,t)),t),t)},
 $S:139}
 F.kK.prototype={
 M:function(a){var t=this,s=null,r=u.E
-r=H.b([new E.oG(t.c,256,!0,!0,!0,s),new T.wO(new V.aK(48,48,48,48),new G.wM(new G.JE(H.b([t.og(C.oa,"https://github.com/KoheiKanagu"),t.og(C.ob,"https://qiita.com/KoheiKanagu"),t.og(C.o9,"https://www.facebook.com/k.g.kohei"),M.t9(s,s,s,s,s,32,s,s,s),t.G6()],r)),s),s)],r)
+r=H.b([new E.oG(t.c,256,!0,!0,!0,s),new T.wO(new V.aK(12,12,12,12),new G.wM(new G.JE(H.b([t.og(C.oa,"https://github.com/KoheiKanagu"),t.og(C.ob,"https://qiita.com/KoheiKanagu"),t.og(C.o9,"https://www.facebook.com/k.g.kohei"),M.t9(s,s,s,s,s,32,s,s,s),t.G6()],r)),s),s)],r)
 return new M.on(new B.tk(r,C.F,!1,s,!0,C.lY,!1,s,0,s,s,C.af,s),s)},
 G6:function(){var t="kanagu@dev.kingu",s=L.QL(t,null)
 return V.Sc(Q.T0(L.ub(C.oc),new F.Kw(t),s,L.ub(C.od)))},
