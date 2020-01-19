@@ -18,7 +18,7 @@ class TopScreen extends StatelessWidget {
             flexibleSpace: nyan,
           ),
           SliverPadding(
-              padding: EdgeInsets.all(48),
+              padding: EdgeInsets.all(12),
               sliver: SliverList(
                   delegate: SliverChildListDelegate.fixed([
                 _sites(
