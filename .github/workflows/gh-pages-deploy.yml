@@ -1,0 +1,30 @@
+name: GitHub Pages Deploy
+on:
+  push:
+    branches: 
+      - master
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Flutter action
+      uses: subosito/flutter-action@v1.1.1
+      with:
+        channel: master
+
+    - name: setup
+      run: |
+        flutter config --enable-web
+        flutter pub get
+        flutter build web
+    
+    - name: GitHub Pages action
+      uses: peaceiris/actions-gh-pages@v2.10.0
+      env:
+        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        PUBLISH_BRANCH: master
+        PUBLISH_DIR: ./build/web
