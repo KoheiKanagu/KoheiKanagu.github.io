@@ -38,6 +38,12 @@ class TopScreen extends StatelessWidget {
                   _name(),
                   _mail(),
                   _portfolio(),
+                  Container(height: 32),
+                  Text("作ったやつとか"),
+                  _sites(
+                    Icons.folder,
+                    "https://example.com",
+                  )
                 ],
               ),
             ),
