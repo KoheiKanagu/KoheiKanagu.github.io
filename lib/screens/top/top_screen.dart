@@ -18,25 +18,55 @@ class TopScreen extends StatelessWidget {
             flexibleSpace: nyan,
           ),
           SliverPadding(
-              padding: EdgeInsets.all(12),
-              sliver: SliverList(
-                  delegate: SliverChildListDelegate.fixed([
-                _sites(
-                  FontAwesomeIcons.github,
-                  "https://github.com/KoheiKanagu",
-                ),
-                _sites(
-                  FontAwesomeIcons.solidQuestionCircle,
-                  "https://qiita.com/KoheiKanagu",
-                ),
-                _sites(
-                  FontAwesomeIcons.facebook,
-                  "https://www.facebook.com/k.g.kohei",
-                ),
-                Container(height: 32),
-                _mail(),
-              ]))),
+            padding: EdgeInsets.all(12),
+            sliver: SliverList(
+              delegate: SliverChildListDelegate.fixed(
+                [
+                  _sites(
+                    FontAwesomeIcons.github,
+                    "https://github.com/KoheiKanagu",
+                  ),
+                  _sites(
+                    FontAwesomeIcons.solidQuestionCircle,
+                    "https://qiita.com/KoheiKanagu",
+                  ),
+                  _sites(
+                    FontAwesomeIcons.facebook,
+                    "https://www.facebook.com/k.g.kohei",
+                  ),
+                  Container(height: 32),
+                  _name(),
+                  _mail(),
+                  _portfolio(),
+                ],
+              ),
+            ),
+          ),
         ],
+      ),
+    );
+  }
+
+  Widget _portfolio() {
+    final url = "https://github.com/KoheiKanagu/KoheiKanagu.github.io";
+
+    return Card(
+      child: ListTile(
+        title: Text("このサイト"),
+        subtitle: Text(url),
+        leading: Icon(Icons.code),
+        trailing: Icon(Icons.open_in_new),
+        onTap: () => launch(url),
+      ),
+    );
+  }
+
+  Widget _name() {
+    return Card(
+      child: ListTile(
+        title: Text("Kohei Kanagu"),
+        subtitle: Text("金具 浩平"),
+        leading: Icon(Icons.tag_faces),
       ),
     );
   }
