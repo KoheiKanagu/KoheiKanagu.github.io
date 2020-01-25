@@ -5,7 +5,7 @@ const RESOURCES = {
 "/assets/packages/font_awesome_flutter/lib/fonts/fa-brands-400.ttf": "3ca122272cfac33efb09d0717efde2fa",
 "/assets/packages/font_awesome_flutter/lib/fonts/fa-solid-900.ttf": "d21f791b837673851dd14f7c132ef32e",
 "/assets/AssetManifest.json": "e26ab0f0a9ebee8025260de29a88a4ca",
-"/assets/LICENSE": "ab528034b183ee1fac16085992dba5ed",
+"/assets/LICENSE": "22795e17d6032fb233c311c441969bce",
 "/assets/FontManifest.json": "5fa2baa1355ee1ffd882bec6ab6780c7",
 "/assets/fonts/MaterialIcons-Regular.ttf": "56d3ffdef7a25659eab6a68a3fbfaf16",
 "/assets/images/nyan.gif": "1a0d759837911e89a318c2266249ba5d",
@@ -13,7 +13,7 @@ const RESOURCES = {
 "/icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "/manifest.json": "d23be53b9bca0d202829d296313d0af4",
 "/index.html": "4f96ad99a2a5672a27e29408feb0adc2",
-"/main.dart.js": "0ae26a9b78c4f6837a6d911d308d5ac6"
+"/main.dart.js": "59a8af6b345d70b54bb422445455d34f"
 };
 
 self.addEventListener('activate', function (event) {
