@@ -40,10 +40,7 @@ class TopScreen extends StatelessWidget {
                   _portfolio(),
                   Container(height: 32),
                   Text("作ったやつとか"),
-                  _sites(
-                    Icons.folder,
-                    "https://example.com",
-                  )
+                  _pages(context, Icons.timer, "カウントダウン", "/countdown"),
                 ],
               ),
             ),
@@ -97,6 +94,18 @@ class TopScreen extends StatelessWidget {
         trailing: Icon(Icons.open_in_new),
         title: Text(link),
         onTap: () => launch(link),
+      ),
+    );
+  }
+
+  Widget _pages(
+      BuildContext context, IconData iconData, String title, String name) {
+    return Card(
+      child: ListTile(
+        leading: Icon(iconData),
+        trailing: Icon(Icons.navigate_next),
+        title: Text(title),
+        onTap: () => Navigator.pushNamed(context, name),
       ),
     );
   }

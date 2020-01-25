@@ -1,3 +1,4 @@
+import 'package:KoheiKanagu_github_io/packages/countdown/screens/countdown_screen.dart';
 import 'package:KoheiKanagu_github_io/screens/top/top_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         "/": (context) => TopScreen(),
+        "/countdown": (context) => CountdownScreen(),
       },
       initialRoute: "/",
     );
