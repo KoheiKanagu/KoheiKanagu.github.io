@@ -41,6 +41,7 @@ class TopScreen extends StatelessWidget {
                   Container(height: 32),
                   Text("作ったやつとか"),
                   _pages(context, Icons.timer, "カウントダウン", "/countdown"),
+                  _pages(context, Icons.work, "勤怠", "/kintai"),
                 ],
               ),
             ),
