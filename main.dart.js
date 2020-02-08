@@ -6205,7 +6205,7 @@ $.a6q=q
 $.a1N=m.a.gtl()
 t=2
 return P.as(P.F5(),$async$F3)
-case 2:if(K.a8i().length===0)K.a9c("AIzaSyCzeHjFxrux4QRFWXFFmVoITuPplQr8HMA","1:715119498389:web:5407c887b027b68217379c","kingu-dev.firebaseapp.com","https://kingu-dev.firebaseio.com","G-W0FCGYNSME","715119498389","kingu-dev","kingu-dev.appspot.com")
+case 2:if(K.a8i().length===0)K.a9c("AIzaSyDQJTMpZQIqeW4HnSwcZXCLgH2TtzaFpog","1:939401085199:web:a3c1928a2288329e413e7a","kingu-42.firebaseapp.com","https://kingu-42.firebaseio.com","G-S2Y86HVFNF","939401085199","kingu-42","kingu-42.appspot.com")
 if($.be==null){m=H.c([],u.kf)
 r=$.L
 q=H.c([],u.kC)
