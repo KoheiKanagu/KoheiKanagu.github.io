@@ -29,3 +29,10 @@ jobs:
         ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         PUBLISH_BRANCH: master
         PUBLISH_DIR: ./build/web
+
+    - name: Firebase Deploy
+      uses: w9jds/firebase-action@v1.3.0
+      with:
+        args: deploy
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
