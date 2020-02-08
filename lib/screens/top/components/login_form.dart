@@ -9,7 +9,7 @@ class LoginForm extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
 
   final _loginBloC = LoginBloC();
-  
+
   @override
   Widget build(BuildContext context) {
     return Card(
