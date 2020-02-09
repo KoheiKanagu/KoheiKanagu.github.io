@@ -31,24 +31,14 @@ class HomePage extends StatelessWidget {
             sliver: SliverList(
               delegate: SliverChildListDelegate.fixed(
                 [
-                  _buildLinkCard(
-                    FontAwesomeIcons.github,
-                    "https://github.com/KoheiKanagu",
-                  ),
-                  _buildLinkCard(
-                    FontAwesomeIcons.solidQuestionCircle,
-                    "https://qiita.com/KoheiKanagu",
-                  ),
-                  _buildLinkCard(
-                    FontAwesomeIcons.facebook,
-                    "https://www.facebook.com/k.g.kohei",
-                  ),
+                  ..._buildLinkCards(),
                   Container(height: 32),
                   ..._buildProfileCard(),
                   Container(height: 32),
                   LoginForm(),
+                  Container(height: 32),
                   Text("作ったやつとか"),
-                  ..._buildContentsCard(context),
+                  ..._buildContentsCards(context),
                 ],
               ),
             ),
@@ -58,36 +48,52 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  List<Widget> _buildProfileCard() {
-    return [
-      Card(
-        child: ListTile(
-          title: Text("Kohei Kanagu"),
-          subtitle: Text("金具 浩平"),
-          leading: Icon(Icons.tag_faces),
+  List<Widget> _buildProfileCard() => [
+        Card(
+          child: ListTile(
+            title: Text("Kohei Kanagu"),
+            subtitle: Text("金具 浩平"),
+            leading: Icon(Icons.tag_faces),
+          ),
         ),
-      ),
-      Card(
-        child: ListTile(
-          title: Text(email),
-          leading: Icon(Icons.mail),
-          trailing: Icon(Icons.send),
-          onTap: () => launch("mailto:$email"),
+        Card(
+          child: ListTile(
+            title: Text(email),
+            leading: Icon(Icons.mail),
+            trailing: Icon(Icons.send),
+            onTap: () => launch("mailto:$email"),
+          ),
         ),
-      ),
-      Card(
-        child: ListTile(
-          title: Text("このサイト"),
-          subtitle: Text(sourceUrl),
-          leading: Icon(Icons.code),
-          trailing: Icon(Icons.open_in_new),
-          onTap: () => launch(sourceUrl),
+        Card(
+          child: ListTile(
+            title: Text("このサイト"),
+            subtitle: Text(sourceUrl),
+            leading: Icon(Icons.code),
+            trailing: Icon(Icons.open_in_new),
+            onTap: () => launch(sourceUrl),
+          ),
         ),
-      ),
-    ];
-  }
+      ];
 
-  Widget _buildLinkCard(IconData iconData, String link) {
+  List<Widget> _buildLinkCards() => [
+        _buildLinkCard(
+          FontAwesomeIcons.github,
+          "https://github.com/KoheiKanagu",
+        ),
+        _buildLinkCard(
+          FontAwesomeIcons.solidQuestionCircle,
+          "https://qiita.com/KoheiKanagu",
+        ),
+        _buildLinkCard(
+          FontAwesomeIcons.facebook,
+          "https://www.facebook.com/k.g.kohei",
+        ),
+      ];
+
+  Widget _buildLinkCard(
+    IconData iconData,
+    String link,
+  ) {
     return Card(
       child: ListTile(
         leading: Icon(iconData),
@@ -98,15 +104,27 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  List<Widget> _buildContentsCard(BuildContext context) {
-    return [
-      _buildContents(context, Icons.timer, "カウントダウン", CountdownPage.routeName),
-      _buildContents(context, Icons.work, "勤怠", KintaiPage.routeName),
-    ];
-  }
+  List<Widget> _buildContentsCards(BuildContext context) => [
+        _buildContentsCard(
+          context,
+          Icons.timer,
+          "カウントダウン",
+          CountdownPage.routeName,
+        ),
+        _buildContentsCard(
+          context,
+          Icons.work,
+          "勤怠",
+          KintaiPage.routeName,
+        ),
+      ];
 
-  Widget _buildContents(
-      BuildContext context, IconData iconData, String title, String route) {
+  Widget _buildContentsCard(
+    BuildContext context,
+    IconData iconData,
+    String title,
+    String route,
+  ) {
     return Card(
       child: ListTile(
         leading: Icon(iconData),
