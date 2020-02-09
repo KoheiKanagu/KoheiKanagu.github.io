@@ -9,6 +9,8 @@ class CountdownPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dl = Countdown.deadline;
+
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.red),
@@ -24,9 +26,9 @@ class CountdownPage extends StatelessWidget {
                 'カウントダウン',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 68),
               ),
-              const Text(
-                '2020年1月31日17時の提出期限まであと',
-                style: TextStyle(fontSize: 48),
+              Text(
+                '${dl.year}年${dl.month}月${dl.day}日${dl.hour}時の提出期限まであと',
+                style: const TextStyle(fontSize: 48),
               ),
               ValueListenableProvider(
                 create: (_) => Countdown(),
