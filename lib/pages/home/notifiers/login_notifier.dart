@@ -1,20 +1,35 @@
+import 'dart:async';
+
 import 'package:firebase/firebase.dart';
+import 'package:flutter/foundation.dart';
 
-class LoginNotifier {
-  bool get isAuthenticated => auth().currentUser != null;
+class LoginNotifier extends ChangeNotifier {
+  User get user => auth().currentUser;
 
-  Stream<bool> onLoginStatusChanged() {
-    return auth().onAuthStateChanged.map((user) {
-      print("$user");
-      return user != null;
+  StreamSubscription<User> _onAuthStateStream;
+
+  LoginNotifier() : super() {
+    _onAuthStateStream = auth().onAuthStateChanged.listen((user) {
+      print(user);
+      notifyListeners();
     });
   }
 
-  void login(String email, String password) {
-    auth().signInWithEmailAndPassword(email, password).then((userCredential) {
-      print(userCredential.toString());
-    }).catchError((err) {
-      print(err.toString());
-    });
+  @override
+  void dispose() {
+    _onAuthStateStream?.cancel();
+    super.dispose();
+  }
+
+  Future<bool> login(String email, String password) {
+    return auth()
+        .signInWithEmailAndPassword(email, password)
+        .then((_) => true)
+        .catchError((_) => false)
+        .whenComplete(notifyListeners);
+  }
+
+  void logout() {
+    auth().signOut();
   }
 }

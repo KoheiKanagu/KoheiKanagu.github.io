@@ -1,6 +1,7 @@
 import 'package:KoheiKanagu_github_io/pages/home/notifiers/login_notifier.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginForm extends StatelessWidget {
   final _emailCtrl = TextEditingController();
@@ -8,29 +9,44 @@ class LoginForm extends StatelessWidget {
 
   final _formKey = GlobalKey<FormState>();
 
-  final _loginNotifier = LoginNotifier();
-
   @override
   Widget build(BuildContext context) {
     return Card(
-        child: StreamBuilder(
-      builder: (context, snapshot) {
-        return ListTile(
+      child: ChangeNotifierProvider(
+        create: (_) => LoginNotifier(),
+        child: ListTile(
           contentPadding: EdgeInsets.only(bottom: 12, left: 12, right: 12),
-          title: _buildForm(),
-          trailing: _buildLoginButton(_loginNotifier.isAuthenticated, context),
-        );
-      },
-      stream: _loginNotifier.onLoginStatusChanged(),
-      initialData: false,
-    ));
+          title: _LoginForm(_emailCtrl, _passCtrl, _formKey),
+          trailing: _LoginButton(_emailCtrl, _passCtrl, _formKey),
+        ),
+      ),
+    );
   }
+}
 
-  Widget _buildLoginButton(bool isAuthenticated, BuildContext context) {
-    if (isAuthenticated) {
+class _LoginButton extends StatelessWidget {
+  final TextEditingController _emailCtrl;
+  final TextEditingController _passCtrl;
+
+  final GlobalKey<FormState> _formKey;
+
+  const _LoginButton(
+    this._emailCtrl,
+    this._passCtrl,
+    this._formKey, {
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    if (context.watch<LoginNotifier>().user != null) {
       return MaterialButton(
-        child: Text("ログイン済み"),
-        onPressed: null,
+        color: Colors.red,
+        child: Text(
+          "ログアウト",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        onPressed: () => context.read<LoginNotifier>().logout(),
       );
     }
 
@@ -38,7 +54,13 @@ class LoginForm extends StatelessWidget {
       color: Theme.of(context).primaryColor,
       onPressed: () async {
         if (_formKey.currentState.validate()) {
-          _loginNotifier.login(_emailCtrl.text, _passCtrl.text);
+          final result = await context
+              .read<LoginNotifier>()
+              .login(_emailCtrl.text, _passCtrl.text);
+
+          Scaffold.of(context).showSnackBar(
+            SnackBar(content: Text("ログイン${result ? "成功" : "失敗"}")),
+          );
         }
       },
       child: Text(
@@ -47,8 +69,23 @@ class LoginForm extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _buildForm() {
+class _LoginForm extends StatelessWidget {
+  final TextEditingController _emailCtrl;
+  final TextEditingController _passCtrl;
+
+  final GlobalKey<FormState> _formKey;
+
+  const _LoginForm(
+    this._emailCtrl,
+    this._passCtrl,
+    this._formKey, {
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Form(
         key: _formKey,
         child: Column(
@@ -56,16 +93,22 @@ class LoginForm extends StatelessWidget {
           children: <Widget>[
             TextFormField(
               decoration: InputDecoration(
-                  labelText: "メール", icon: Icon(Icons.account_box)),
+                labelText: "メール",
+                icon: Icon(Icons.account_box),
+              ),
               controller: _emailCtrl,
+              enabled: context.watch<LoginNotifier>().user == null,
               validator: (v) =>
                   EmailValidator.validate(v) ? null : "不正なメールアドレス",
             ),
             TextFormField(
-              decoration:
-                  InputDecoration(labelText: "パスワード", icon: Icon(Icons.lock)),
+              decoration: InputDecoration(
+                labelText: "パスワード",
+                icon: Icon(Icons.lock),
+              ),
               obscureText: true,
               controller: _passCtrl,
+              enabled: context.watch<LoginNotifier>().user == null,
               validator: (v) => v.isEmpty ? "空欄" : null,
             ),
           ],
