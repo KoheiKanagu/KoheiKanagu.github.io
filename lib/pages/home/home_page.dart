@@ -10,9 +10,10 @@ class HomePage extends StatelessWidget {
 
   static const routeName = '/';
 
-  final nyan = Image.asset("images/nyan.gif");
-  final sourceUrl = "https://github.com/KoheiKanagu/KoheiKanagu.github.io";
-  final email = "kanagu@kingu.dev";
+  final Image nyan = Image.asset('images/nyan.gif');
+  final String sourceUrl =
+      'https://github.com/KoheiKanagu/KoheiKanagu.github.io';
+  final String email = 'kanagu@kingu.dev';
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class HomePage extends StatelessWidget {
             flexibleSpace: nyan,
           ),
           SliverPadding(
-            padding: EdgeInsets.all(12),
+            padding: const EdgeInsets.all(12),
             sliver: SliverList(
               delegate: SliverChildListDelegate.fixed(
                 [
@@ -37,7 +38,7 @@ class HomePage extends StatelessWidget {
                   Container(height: 32),
                   LoginForm(),
                   Container(height: 32),
-                  Text("作ったやつとか"),
+                  const Text('作ったやつとか'),
                   ..._buildContentsCards(context),
                 ],
               ),
@@ -51,8 +52,8 @@ class HomePage extends StatelessWidget {
   List<Widget> _buildProfileCard() => [
         Card(
           child: ListTile(
-            title: Text("Kohei Kanagu"),
-            subtitle: Text("金具 浩平"),
+            title: const Text('Kohei Kanagu'),
+            subtitle: const Text('金具 浩平'),
             leading: Icon(Icons.tag_faces),
           ),
         ),
@@ -61,12 +62,12 @@ class HomePage extends StatelessWidget {
             title: Text(email),
             leading: Icon(Icons.mail),
             trailing: Icon(Icons.send),
-            onTap: () => launch("mailto:$email"),
+            onTap: () => launch('mailto:$email'),
           ),
         ),
         Card(
           child: ListTile(
-            title: Text("このサイト"),
+            title: const Text('このサイト'),
             subtitle: Text(sourceUrl),
             leading: Icon(Icons.code),
             trailing: Icon(Icons.open_in_new),
@@ -78,15 +79,15 @@ class HomePage extends StatelessWidget {
   List<Widget> _buildLinkCards() => [
         _buildLinkCard(
           FontAwesomeIcons.github,
-          "https://github.com/KoheiKanagu",
+          'https://github.com/KoheiKanagu',
         ),
         _buildLinkCard(
           FontAwesomeIcons.solidQuestionCircle,
-          "https://qiita.com/KoheiKanagu",
+          'https://qiita.com/KoheiKanagu',
         ),
         _buildLinkCard(
           FontAwesomeIcons.facebook,
-          "https://www.facebook.com/k.g.kohei",
+          'https://www.facebook.com/k.g.kohei',
         ),
       ];
 
@@ -108,13 +109,13 @@ class HomePage extends StatelessWidget {
         _buildContentsCard(
           context,
           Icons.timer,
-          "カウントダウン",
+          'カウントダウン',
           CountdownPage.routeName,
         ),
         _buildContentsCard(
           context,
           Icons.work,
-          "勤怠",
+          '勤怠',
           KintaiPage.routeName,
         ),
       ];

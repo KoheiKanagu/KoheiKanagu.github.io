@@ -15,7 +15,8 @@ class LoginForm extends StatelessWidget {
       child: ChangeNotifierProvider(
         create: (_) => LoginNotifier(),
         child: ListTile(
-          contentPadding: EdgeInsets.only(bottom: 12, left: 12, right: 12),
+          contentPadding:
+              const EdgeInsets.only(bottom: 12, left: 12, right: 12),
           title: _LoginForm(_emailCtrl, _passCtrl, _formKey),
           trailing: _LoginButton(_emailCtrl, _passCtrl, _formKey),
         ),
@@ -25,11 +26,6 @@ class LoginForm extends StatelessWidget {
 }
 
 class _LoginButton extends StatelessWidget {
-  final TextEditingController _emailCtrl;
-  final TextEditingController _passCtrl;
-
-  final GlobalKey<FormState> _formKey;
-
   const _LoginButton(
     this._emailCtrl,
     this._passCtrl,
@@ -37,13 +33,18 @@ class _LoginButton extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
+  final TextEditingController _emailCtrl;
+  final TextEditingController _passCtrl;
+
+  final GlobalKey<FormState> _formKey;
+
   @override
   Widget build(BuildContext context) {
     if (context.watch<LoginNotifier>().user != null) {
       return MaterialButton(
         color: Colors.red,
         child: Text(
-          "ログアウト",
+          'ログアウト',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         onPressed: () => context.read<LoginNotifier>().logout(),
@@ -64,7 +65,7 @@ class _LoginButton extends StatelessWidget {
         }
       },
       child: Text(
-        "ログイン",
+        'ログイン',
         style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       ),
     );
@@ -72,17 +73,17 @@ class _LoginButton extends StatelessWidget {
 }
 
 class _LoginForm extends StatelessWidget {
-  final TextEditingController _emailCtrl;
-  final TextEditingController _passCtrl;
-
-  final GlobalKey<FormState> _formKey;
-
   const _LoginForm(
     this._emailCtrl,
     this._passCtrl,
     this._formKey, {
     Key key,
   }) : super(key: key);
+
+  final TextEditingController _emailCtrl;
+  final TextEditingController _passCtrl;
+
+  final GlobalKey<FormState> _formKey;
 
   @override
   Widget build(BuildContext context) {
@@ -93,23 +94,23 @@ class _LoginForm extends StatelessWidget {
           children: <Widget>[
             TextFormField(
               decoration: InputDecoration(
-                labelText: "メール",
+                labelText: 'メール',
                 icon: Icon(Icons.account_box),
               ),
               controller: _emailCtrl,
               enabled: context.watch<LoginNotifier>().user == null,
               validator: (v) =>
-                  EmailValidator.validate(v) ? null : "不正なメールアドレス",
+                  EmailValidator.validate(v) ? null : '不正なメールアドレス',
             ),
             TextFormField(
               decoration: InputDecoration(
-                labelText: "パスワード",
+                labelText: 'パスワード',
                 icon: Icon(Icons.lock),
               ),
               obscureText: true,
               controller: _passCtrl,
               enabled: context.watch<LoginNotifier>().user == null,
-              validator: (v) => v.isEmpty ? "空欄" : null,
+              validator: (v) => v.isEmpty ? '空欄' : null,
             ),
           ],
         ));

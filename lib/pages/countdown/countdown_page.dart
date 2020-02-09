@@ -12,7 +12,7 @@ class CountdownPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.red),
-        backgroundColor: Color.fromARGB(0, 0, 0, 0),
+        backgroundColor: const Color.fromARGB(0, 0, 0, 0),
         elevation: 0,
       ),
       body: Center(
@@ -21,11 +21,11 @@ class CountdownPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                "カウントダウン",
+                'カウントダウン',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 68),
               ),
-              Text(
-                "2020年1月31日17時の提出期限まであと",
+              const Text(
+                '2020年1月31日17時の提出期限まであと',
                 style: TextStyle(fontSize: 48),
               ),
               ValueListenableProvider(
@@ -45,7 +45,7 @@ class LeftTime extends StatelessWidget {
   Widget build(BuildContext context) {
     final value = context.watch<Duration>();
 
-    final text = "${value.inDays}日"
+    final text = '${value.inDays}日'
         "${value.inHours?.remainder(24).toString().padLeft(2, "0")}:"
         "${value.inMinutes?.remainder(60).toString().padLeft(2, "0")}:"
         "${value.inSeconds?.remainder(60).toString().padLeft(2, "0")}."

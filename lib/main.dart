@@ -7,14 +7,14 @@ import 'package:flutter/material.dart';
 void main() {
   if (apps.isEmpty) {
     initializeApp(
-      apiKey: "AIzaSyDQJTMpZQIqeW4HnSwcZXCLgH2TtzaFpog",
-      authDomain: "kingu-42.firebaseapp.com",
-      databaseURL: "https://kingu-42.firebaseio.com",
-      projectId: "kingu-42",
-      storageBucket: "kingu-42.appspot.com",
-      messagingSenderId: "939401085199",
-      appId: "1:939401085199:web:a3c1928a2288329e413e7a",
-      measurementId: "G-S2Y86HVFNF",
+      apiKey: 'AIzaSyDQJTMpZQIqeW4HnSwcZXCLgH2TtzaFpog',
+      authDomain: 'kingu-42.firebaseapp.com',
+      databaseURL: 'https://kingu-42.firebaseio.com',
+      projectId: 'kingu-42',
+      storageBucket: 'kingu-42.appspot.com',
+      messagingSenderId: '939401085199',
+      appId: '1:939401085199:web:a3c1928a2288329e413e7a',
+      measurementId: 'G-S2Y86HVFNF',
     );
   }
   runApp(MyApp());
@@ -25,12 +25,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primaryColor: Color.fromRGBO(0, 164, 172, 1.0),
+        primaryColor: const Color.fromRGBO(0, 164, 172, 1),
       ),
       routes: {
         HomePage.routeName: (context) => HomePage(),
-        CountdownPage.routeName: (context) => CountdownPage(),
-        KintaiPage.routeName: (context) => KintaiPage(),
+        CountdownPage.routeName: (context) => const CountdownPage(),
+        KintaiPage.routeName: (context) => const KintaiPage(),
       },
       initialRoute: HomePage.routeName,
     );

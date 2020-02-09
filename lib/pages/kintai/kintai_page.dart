@@ -7,11 +7,11 @@ class KintaiPage extends StatelessWidget {
 
   static const routeName = '/kintai';
 
-  final textStyle = const TextStyle(
-    fontSize: 64,
-    fontWeight: FontWeight.bold,
-    color: Colors.white,
-  );
+  TextStyle get _textStyle => const TextStyle(
+        fontSize: 64,
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -21,21 +21,21 @@ class KintaiPage extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Spacer(),
+            const Spacer(),
             FittedBox(
               child: MaterialButton(
                   color: Colors.blue,
                   onPressed: () {},
-                  child: Text("出勤", style: textStyle)),
+                  child: Text('出勤', style: _textStyle)),
             ),
-            Spacer(),
+            const Spacer(),
             FittedBox(
               child: MaterialButton(
                   color: Colors.red,
                   onPressed: () {},
-                  child: Text("退勤", style: textStyle)),
+                  child: Text('退勤', style: _textStyle)),
             ),
-            Spacer(),
+            const Spacer(),
           ],
         ),
       ),
