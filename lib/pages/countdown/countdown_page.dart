@@ -28,7 +28,7 @@ class CountdownPage extends StatelessWidget {
                 "2020年1月31日17時の提出期限まであと",
                 style: TextStyle(fontSize: 48),
               ),
-              ChangeNotifierProvider(
+              ValueListenableProvider(
                 create: (_) => Countdown(),
                 child: LeftTime(),
               ),
@@ -43,13 +43,13 @@ class CountdownPage extends StatelessWidget {
 class LeftTime extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final countdown = Provider.of<Countdown>(context);
+    final value = context.watch<Duration>();
 
-    final text = "${countdown.leftTime?.inDays}日"
-        "${countdown.leftTime?.inHours?.remainder(24).toString().padLeft(2, "0")}:"
-        "${countdown.leftTime?.inMinutes?.remainder(60).toString().padLeft(2, "0")}:"
-        "${countdown.leftTime?.inSeconds?.remainder(60).toString().padLeft(2, "0")}."
-        "${countdown.leftTime?.inMilliseconds?.remainder(1000).toString().padLeft(3, "0")}";
+    final text = "${value.inDays}日"
+        "${value.inHours?.remainder(24).toString().padLeft(2, "0")}:"
+        "${value.inMinutes?.remainder(60).toString().padLeft(2, "0")}:"
+        "${value.inSeconds?.remainder(60).toString().padLeft(2, "0")}."
+        "${value.inMilliseconds?.remainder(1000).toString().padLeft(3, "0")}";
 
     return Text(
       text,

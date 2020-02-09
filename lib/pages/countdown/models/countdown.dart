@@ -2,23 +2,27 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-class Countdown with ChangeNotifier {
+class Countdown extends ValueNotifier<Duration> {
   static final DateTime deadline = DateTime(2020, 1, 31, 17, 0);
-
-  Duration leftTime;
 
   Timer _timer;
 
-  Countdown() {
-    _timer = Timer.periodic(Duration(milliseconds: 1), (_) {
-      leftTime = deadline.difference(DateTime.now());
-      notifyListeners();
-    });
+  Countdown() : super(Duration()) {
+    if (deadline.difference(DateTime.now()).isNegative) {
+      return;
+    }
+
+    _timer = Timer.periodic(
+      Duration(milliseconds: 1),
+      (_) {
+        value = deadline.difference(DateTime.now());
+      },
+    );
   }
 
   @override
   void dispose() {
     super.dispose();
-    _timer.cancel();
+    _timer?.cancel();
   }
 }
