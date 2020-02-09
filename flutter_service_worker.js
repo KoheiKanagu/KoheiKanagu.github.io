@@ -6,11 +6,11 @@ const RESOURCES = {
 "/assets/packages/font_awesome_flutter/lib/fonts/fa-solid-900.ttf": "d21f791b837673851dd14f7c132ef32e",
 "/assets/packages/font_awesome_flutter/lib/fonts/fa-regular-400.ttf": "bdd8d75eb9e6832ccd3117e06c51f0d3",
 "/assets/AssetManifest.json": "e26ab0f0a9ebee8025260de29a88a4ca",
-"/assets/LICENSE": "8c1a373b429ac932eb16f8fc02a8c827",
+"/assets/LICENSE": "9f18df63397fc72064b42cc178336b92",
 "/assets/images/nyan.gif": "1a0d759837911e89a318c2266249ba5d",
 "/assets/FontManifest.json": "5fa2baa1355ee1ffd882bec6ab6780c7",
 "/assets/fonts/MaterialIcons-Regular.ttf": "56d3ffdef7a25659eab6a68a3fbfaf16",
-"/main.dart.js": "a8be525f3f1181461ded929a978c2b0d"
+"/main.dart.js": "c626c33198551e15d73a1761d1c54101"
 };
 
 self.addEventListener('activate', function (event) {
