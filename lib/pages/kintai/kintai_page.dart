@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 
-class KintaiScreen extends StatelessWidget {
+class KintaiPage extends StatelessWidget {
+  const KintaiPage({Key key}) : super(key: key);
+
+  static const routeName = '/kintai';
+
   final textStyle = const TextStyle(
     fontSize: 64,
     fontWeight: FontWeight.bold,

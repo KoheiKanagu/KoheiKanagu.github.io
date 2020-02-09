@@ -1,8 +1,12 @@
-import 'package:KoheiKanagu_github_io/packages/countdown/models/countdown.dart';
+import 'package:KoheiKanagu_github_io/pages/countdown/models/countdown.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class CountdownScreen extends StatelessWidget {
+class CountdownPage extends StatelessWidget {
+  const CountdownPage({Key key}) : super(key: key);
+
+  static const routeName = '/countdown';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

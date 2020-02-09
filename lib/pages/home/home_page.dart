@@ -1,9 +1,13 @@
-import 'package:KoheiKanagu_github_io/screens/top/components/login_form.dart';
+import 'package:KoheiKanagu_github_io/pages/home/widgets/login_form.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class TopScreen extends StatelessWidget {
+class HomePage extends StatelessWidget {
+  HomePage({Key key}) : super(key: key);
+
+  static const routeName = '/';
+
   final nyan = Image.asset("images/nyan.gif");
 
   @override

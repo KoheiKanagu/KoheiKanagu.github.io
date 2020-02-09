@@ -1,6 +1,6 @@
 import 'package:firebase/firebase.dart';
 
-class LoginBloC {
+class LoginNotifier {
   bool get isAuthenticated => auth().currentUser != null;
 
   Stream<bool> onLoginStatusChanged() {

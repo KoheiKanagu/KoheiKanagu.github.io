@@ -1,4 +1,4 @@
-import 'package:KoheiKanagu_github_io/screens/top/bloc/login_bloc.dart';
+import 'package:KoheiKanagu_github_io/pages/home/notifiers/login_notifier.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +8,7 @@ class LoginForm extends StatelessWidget {
 
   final _formKey = GlobalKey<FormState>();
 
-  final _loginBloC = LoginBloC();
+  final _loginNotifier = LoginNotifier();
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +18,10 @@ class LoginForm extends StatelessWidget {
         return ListTile(
           contentPadding: EdgeInsets.only(bottom: 12, left: 12, right: 12),
           title: _buildForm(),
-          trailing: _buildLoginButton(_loginBloC.isAuthenticated, context),
+          trailing: _buildLoginButton(_loginNotifier.isAuthenticated, context),
         );
       },
-      stream: _loginBloC.onLoginStatusChanged(),
+      stream: _loginNotifier.onLoginStatusChanged(),
       initialData: false,
     ));
   }
@@ -38,7 +38,7 @@ class LoginForm extends StatelessWidget {
       color: Theme.of(context).primaryColor,
       onPressed: () async {
         if (_formKey.currentState.validate()) {
-          _loginBloC.login(_emailCtrl.text, _passCtrl.text);
+          _loginNotifier.login(_emailCtrl.text, _passCtrl.text);
         }
       },
       child: Text(

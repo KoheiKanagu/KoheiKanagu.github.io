@@ -1,6 +1,6 @@
-import 'package:KoheiKanagu_github_io/packages/countdown/screens/countdown_screen.dart';
-import 'package:KoheiKanagu_github_io/packages/kintai/screens/kintai_screen.dart';
-import 'package:KoheiKanagu_github_io/screens/top/top_screen.dart';
+import 'package:KoheiKanagu_github_io/pages/countdown/countdown_page.dart';
+import 'package:KoheiKanagu_github_io/pages/home/home_page.dart';
+import 'package:KoheiKanagu_github_io/pages/kintai/kintai_page.dart';
 import 'package:firebase/firebase.dart';
 import 'package:flutter/material.dart';
 
@@ -28,11 +28,11 @@ class MyApp extends StatelessWidget {
         primaryColor: Color.fromRGBO(0, 164, 172, 1.0),
       ),
       routes: {
-        "/": (context) => TopScreen(),
-        "/countdown": (context) => CountdownScreen(),
-        "/kintai": (context) => KintaiScreen(),
+        HomePage.routeName: (context) => HomePage(),
+        CountdownPage.routeName: (context) => CountdownPage(),
+        KintaiPage.routeName: (context) => KintaiPage(),
       },
-      initialRoute: "/",
+      initialRoute: HomePage.routeName,
     );
   }
 }
