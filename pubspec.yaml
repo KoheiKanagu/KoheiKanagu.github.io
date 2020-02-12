@@ -12,6 +12,8 @@ dependencies:
   provider: ^4.1.0-dev
   firebase: ^7.2.1
   email_validator: ^1.0.4
+  cloud_firestore: ^0.13.1
+  cloud_firestore_web: ^0.1.0
   flutter:
     sdk: flutter
 
