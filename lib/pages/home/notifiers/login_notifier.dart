@@ -1,19 +1,23 @@
 import 'dart:async';
 
-import 'package:firebase/firebase.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
 class LoginNotifier extends ChangeNotifier {
   LoginNotifier() : super() {
-    _onAuthStateStream = auth().onAuthStateChanged.listen((user) {
+    _onAuthStateStream =
+        FirebaseAuth.instance.onAuthStateChanged.listen((user) {
       print(user);
+      _user = user;
       notifyListeners();
     });
   }
 
-  User get user => auth().currentUser;
+  FirebaseUser _user;
 
-  StreamSubscription<User> _onAuthStateStream;
+  FirebaseUser get user => _user;
+
+  StreamSubscription<FirebaseUser> _onAuthStateStream;
 
   @override
   void dispose() {
@@ -22,14 +26,14 @@ class LoginNotifier extends ChangeNotifier {
   }
 
   Future<bool> login(String email, String password) {
-    return auth()
-        .signInWithEmailAndPassword(email, password)
-        .then((_) => true)
+    return FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: email, password: password)
+        .then((value) => true)
         .catchError(() => false)
         .whenComplete(notifyListeners);
   }
 
   void logout() {
-    auth().signOut();
+    FirebaseAuth.instance.signOut();
   }
 }

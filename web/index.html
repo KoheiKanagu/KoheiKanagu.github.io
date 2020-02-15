@@ -5,11 +5,26 @@
   <title>KoheiKanagu</title>
 </head>
 <body>
-  <script src="main.dart.js" type="application/javascript"></script>
 
   <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: 'AIzaSyDQJTMpZQIqeW4HnSwcZXCLgH2TtzaFpog',
+      authDomain: 'kingu-42.firebaseapp.com',
+      databaseURL: 'https://kingu-42.firebaseio.com',
+      projectId: 'kingu-42',
+      storageBucket: 'kingu-42.appspot.com',
+      messagingSenderId: '939401085199',
+      appId: '1:939401085199:web:a3c1928a2288329e413e7a',
+      measurementId: 'G-S2Y86HVFNF',
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <script src="main.dart.js" type="application/javascript"></script>
 </body>
 </html>
