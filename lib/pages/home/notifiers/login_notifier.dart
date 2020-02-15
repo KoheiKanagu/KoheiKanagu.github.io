@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:KoheiKanagu_github_io/util/logger.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
@@ -7,7 +8,7 @@ class LoginNotifier extends ChangeNotifier {
   LoginNotifier() : super() {
     _onAuthStateStream =
         FirebaseAuth.instance.onAuthStateChanged.listen((user) {
-      print(user);
+      logger.info(user?.uid);
       _user = user;
       notifyListeners();
     });
