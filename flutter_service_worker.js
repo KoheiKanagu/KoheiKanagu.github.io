@@ -10,7 +10,7 @@ const RESOURCES = {
 "/assets/images/nyan.gif": "1a0d759837911e89a318c2266249ba5d",
 "/assets/FontManifest.json": "5fa2baa1355ee1ffd882bec6ab6780c7",
 "/assets/fonts/MaterialIcons-Regular.ttf": "56d3ffdef7a25659eab6a68a3fbfaf16",
-"/main.dart.js": "bfbec3ded34c50a2b67a2efcb510c563"
+"/main.dart.js": "0287ec67c33914a8aa029cdbc220d74d"
 };
 
 self.addEventListener('activate', function (event) {
