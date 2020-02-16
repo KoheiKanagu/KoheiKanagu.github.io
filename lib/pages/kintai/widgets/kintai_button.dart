@@ -33,7 +33,7 @@ class KintaiButton extends StatelessWidget {
               Container(height: 12),
               notifier.value.when(
                 (uid, today, punchInTime, punchOutTime) =>
-                    Text(punchInTime.toIso8601String() ?? '未設定'),
+                    Text(punchInTime?.toIso8601String() ?? '未設定'),
                 notSignedIn: () => const Text('未サインイン'),
                 undefined: () => const Text('未打刻'),
                 error: () => const Text('エラー'),
