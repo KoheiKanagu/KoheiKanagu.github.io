@@ -9,7 +9,7 @@ class TimestampField {
 DateTime timestampToDateTime(Timestamp timestamp) => timestamp?.toDate();
 
 Timestamp dateTimeToTimestamp(DateTime dateTime) =>
-    Timestamp.fromDate(dateTime);
+    dateTime == null ? null : Timestamp.fromDate(dateTime);
 
 Map<String, dynamic> updateTimestamps(
   Map<String, dynamic> json,
