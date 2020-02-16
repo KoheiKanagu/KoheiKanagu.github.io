@@ -2,6 +2,7 @@ import 'package:KoheiKanagu_github_io/pages/countdown/countdown_page.dart';
 import 'package:KoheiKanagu_github_io/pages/home/home_page.dart';
 import 'package:KoheiKanagu_github_io/pages/kintai/kintai_page.dart';
 import 'package:KoheiKanagu_github_io/pages/kintai/notifiers/time_card_notifier.dart';
+import 'package:KoheiKanagu_github_io/pages/playground/playground_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
               create: (_) => TimeCardNotifier(),
               child: const KintaiPage(),
             ),
+        PlayGroundPage.routeName: (context) => const PlayGroundPage(),
       },
       initialRoute: HomePage.routeName,
     );
