@@ -11,7 +11,7 @@ class TimeCardNotifier extends ValueNotifier<TimeCard> {
 
   DocumentReference _documentReference;
 
-  Future<void> _fetchToday() async {
+  Future<void> fetchToday() async {
     final user = await FirebaseAuth.instance.currentUser();
 
     if (user == null) {
@@ -105,7 +105,7 @@ class TimeCardNotifier extends ValueNotifier<TimeCard> {
   }
 
   Future<void> punchIn() async {
-    await _fetchToday();
+    await fetchToday();
 
     value.maybeWhen(
       (uid, today, punchInTime, punchOutTime) {
@@ -125,7 +125,7 @@ class TimeCardNotifier extends ValueNotifier<TimeCard> {
   }
 
   Future<void> punchOut() async {
-    await _fetchToday();
+    await fetchToday();
     value.maybeWhen(
       (uid, today, punchInTime, punchOutTime) {
         final card = TimeCard(

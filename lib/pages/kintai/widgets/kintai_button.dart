@@ -1,4 +1,7 @@
+import 'dart:html';
+
 import 'package:KoheiKanagu_github_io/pages/kintai/notifiers/time_card_notifier.dart';
+import 'package:KoheiKanagu_github_io/util/converter/timestamp_converter.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,17 +23,43 @@ class KintaiButton extends StatelessWidget {
       children: <Widget>[
         const Spacer(),
         FittedBox(
-          child: MaterialButton(
-              color: Colors.blue,
-              onPressed: () => context.read<TimeCardNotifier>().punchIn(),
-              child: Text('出勤', style: _textStyle)),
+          child: Column(
+            children: <Widget>[
+              MaterialButton(
+                color: Colors.blue,
+                onPressed: notifier.punchIn,
+                child: Text('出勤', style: _textStyle),
+              ),
+              Container(height: 12),
+              notifier.value.when(
+                (uid, today, punchInTime, punchOutTime) =>
+                    Text(punchInTime.toIso8601String() ?? '未設定'),
+                notSignedIn: () => const Text('未サインイン'),
+                undefined: () => const Text('未打刻'),
+                error: () => const Text('エラー'),
+              )
+            ],
+          ),
         ),
         const Spacer(),
         FittedBox(
-          child: MaterialButton(
-              color: Colors.red,
-              onPressed: () => context.read<TimeCardNotifier>().punchOut(),
-              child: Text('退勤', style: _textStyle)),
+          child: Column(
+            children: <Widget>[
+              MaterialButton(
+                color: Colors.red,
+                onPressed: notifier.punchOut,
+                child: Text('退勤', style: _textStyle),
+              ),
+              Container(height: 12),
+              notifier.value.when(
+                (uid, today, punchInTime, punchOutTime) =>
+                    Text(punchOutTime?.toIso8601String() ?? '未設定'),
+                notSignedIn: () => const Text('未サインイン'),
+                undefined: () => const Text('未打刻'),
+                error: () => const Text('エラー'),
+              )
+            ],
+          ),
         ),
         const Spacer(),
       ],
