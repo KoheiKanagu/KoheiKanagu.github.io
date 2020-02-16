@@ -27,15 +27,10 @@ mixin _$TimeCard {
   @optionalTypeArgs
   Result when<Result extends Object>(
     Result $default(
-        @required
-            String uid,
-        @required
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp today,
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp punchInTime,
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp punchOutTime), {
+        @required String uid,
+        @required @jsonKeyTimestamp DateTime today,
+        @jsonKeyTimestamp DateTime punchInTime,
+        @jsonKeyTimestamp DateTime punchOutTime), {
     @required Result notSignedIn(),
     @required Result undefined(),
     @required Result error(),
@@ -44,15 +39,10 @@ mixin _$TimeCard {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(
-        @required
-            String uid,
-        @required
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp today,
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp punchInTime,
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp punchOutTime), {
+        @required String uid,
+        @required @jsonKeyTimestamp DateTime today,
+        @jsonKeyTimestamp DateTime punchInTime,
+        @jsonKeyTimestamp DateTime punchOutTime), {
     Result notSignedIn(),
     Result undefined(),
     Result error(),
@@ -82,15 +72,10 @@ mixin _$TimeCard {
 @JsonSerializable()
 class _$_TimeCard with DiagnosticableTreeMixin implements _TimeCard {
   const _$_TimeCard(
-      {@required
-          this.uid,
-      @required
-      @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-          this.today,
-      @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-          this.punchInTime,
-      @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-          this.punchOutTime})
+      {@required this.uid,
+      @required @jsonKeyTimestamp this.today,
+      @jsonKeyTimestamp this.punchInTime,
+      @jsonKeyTimestamp this.punchOutTime})
       : assert(uid != null),
         assert(today != null);
 
@@ -100,20 +85,14 @@ class _$_TimeCard with DiagnosticableTreeMixin implements _TimeCard {
   @override
   final String uid;
   @override
-  @JsonKey(
-      fromJson: TimestampConverter.fromTimestamp,
-      toJson: TimestampConverter.toTimestamp)
-  final Timestamp today;
+  @jsonKeyTimestamp
+  final DateTime today;
   @override
-  @JsonKey(
-      fromJson: TimestampConverter.fromTimestamp,
-      toJson: TimestampConverter.toTimestamp)
-  final Timestamp punchInTime;
+  @jsonKeyTimestamp
+  final DateTime punchInTime;
   @override
-  @JsonKey(
-      fromJson: TimestampConverter.fromTimestamp,
-      toJson: TimestampConverter.toTimestamp)
-  final Timestamp punchOutTime;
+  @jsonKeyTimestamp
+  final DateTime punchOutTime;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -166,12 +145,12 @@ class _$_TimeCard with DiagnosticableTreeMixin implements _TimeCard {
     assert(today != null);
     return _$_TimeCard(
       uid: uid == freezed ? this.uid : uid as String,
-      today: today == freezed ? this.today : today as Timestamp,
+      today: today == freezed ? this.today : today as DateTime,
       punchInTime:
-          punchInTime == freezed ? this.punchInTime : punchInTime as Timestamp,
+          punchInTime == freezed ? this.punchInTime : punchInTime as DateTime,
       punchOutTime: punchOutTime == freezed
           ? this.punchOutTime
-          : punchOutTime as Timestamp,
+          : punchOutTime as DateTime,
     );
   }
 
@@ -179,15 +158,10 @@ class _$_TimeCard with DiagnosticableTreeMixin implements _TimeCard {
   @optionalTypeArgs
   Result when<Result extends Object>(
     Result $default(
-        @required
-            String uid,
-        @required
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp today,
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp punchInTime,
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp punchOutTime), {
+        @required String uid,
+        @required @jsonKeyTimestamp DateTime today,
+        @jsonKeyTimestamp DateTime punchInTime,
+        @jsonKeyTimestamp DateTime punchOutTime), {
     @required Result notSignedIn(),
     @required Result undefined(),
     @required Result error(),
@@ -203,15 +177,10 @@ class _$_TimeCard with DiagnosticableTreeMixin implements _TimeCard {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(
-        @required
-            String uid,
-        @required
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp today,
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp punchInTime,
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp punchOutTime), {
+        @required String uid,
+        @required @jsonKeyTimestamp DateTime today,
+        @jsonKeyTimestamp DateTime punchInTime,
+        @jsonKeyTimestamp DateTime punchOutTime), {
     Result notSignedIn(),
     Result undefined(),
     Result error(),
@@ -263,40 +232,26 @@ class _$_TimeCard with DiagnosticableTreeMixin implements _TimeCard {
 
 abstract class _TimeCard implements TimeCard {
   const factory _TimeCard(
-      {@required
-          String uid,
-      @required
-      @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-          Timestamp today,
-      @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-          Timestamp punchInTime,
-      @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-          Timestamp punchOutTime}) = _$_TimeCard;
+      {@required String uid,
+      @required @jsonKeyTimestamp DateTime today,
+      @jsonKeyTimestamp DateTime punchInTime,
+      @jsonKeyTimestamp DateTime punchOutTime}) = _$_TimeCard;
 
   factory _TimeCard.fromJson(Map<String, dynamic> json) = _$_TimeCard.fromJson;
 
   String get uid;
-  @JsonKey(
-      fromJson: TimestampConverter.fromTimestamp,
-      toJson: TimestampConverter.toTimestamp)
-  Timestamp get today;
-  @JsonKey(
-      fromJson: TimestampConverter.fromTimestamp,
-      toJson: TimestampConverter.toTimestamp)
-  Timestamp get punchInTime;
-  @JsonKey(
-      fromJson: TimestampConverter.fromTimestamp,
-      toJson: TimestampConverter.toTimestamp)
-  Timestamp get punchOutTime;
+  @jsonKeyTimestamp
+  DateTime get today;
+  @jsonKeyTimestamp
+  DateTime get punchInTime;
+  @jsonKeyTimestamp
+  DateTime get punchOutTime;
 
   _TimeCard copyWith(
       {String uid,
-      @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-          Timestamp today,
-      @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-          Timestamp punchInTime,
-      @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-          Timestamp punchOutTime});
+      @jsonKeyTimestamp DateTime today,
+      @jsonKeyTimestamp DateTime punchInTime,
+      @jsonKeyTimestamp DateTime punchOutTime});
 }
 
 @JsonSerializable()
@@ -329,15 +284,10 @@ class _$_NotSignedIn with DiagnosticableTreeMixin implements _NotSignedIn {
   @optionalTypeArgs
   Result when<Result extends Object>(
     Result $default(
-        @required
-            String uid,
-        @required
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp today,
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp punchInTime,
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp punchOutTime), {
+        @required String uid,
+        @required @jsonKeyTimestamp DateTime today,
+        @jsonKeyTimestamp DateTime punchInTime,
+        @jsonKeyTimestamp DateTime punchOutTime), {
     @required Result notSignedIn(),
     @required Result undefined(),
     @required Result error(),
@@ -353,15 +303,10 @@ class _$_NotSignedIn with DiagnosticableTreeMixin implements _NotSignedIn {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(
-        @required
-            String uid,
-        @required
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp today,
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp punchInTime,
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp punchOutTime), {
+        @required String uid,
+        @required @jsonKeyTimestamp DateTime today,
+        @jsonKeyTimestamp DateTime punchInTime,
+        @jsonKeyTimestamp DateTime punchOutTime), {
     Result notSignedIn(),
     Result undefined(),
     Result error(),
@@ -448,15 +393,10 @@ class _$_Undefined with DiagnosticableTreeMixin implements _Undefined {
   @optionalTypeArgs
   Result when<Result extends Object>(
     Result $default(
-        @required
-            String uid,
-        @required
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp today,
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp punchInTime,
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp punchOutTime), {
+        @required String uid,
+        @required @jsonKeyTimestamp DateTime today,
+        @jsonKeyTimestamp DateTime punchInTime,
+        @jsonKeyTimestamp DateTime punchOutTime), {
     @required Result notSignedIn(),
     @required Result undefined(),
     @required Result error(),
@@ -472,15 +412,10 @@ class _$_Undefined with DiagnosticableTreeMixin implements _Undefined {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(
-        @required
-            String uid,
-        @required
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp today,
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp punchInTime,
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp punchOutTime), {
+        @required String uid,
+        @required @jsonKeyTimestamp DateTime today,
+        @jsonKeyTimestamp DateTime punchInTime,
+        @jsonKeyTimestamp DateTime punchOutTime), {
     Result notSignedIn(),
     Result undefined(),
     Result error(),
@@ -567,15 +502,10 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
   @optionalTypeArgs
   Result when<Result extends Object>(
     Result $default(
-        @required
-            String uid,
-        @required
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp today,
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp punchInTime,
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp punchOutTime), {
+        @required String uid,
+        @required @jsonKeyTimestamp DateTime today,
+        @jsonKeyTimestamp DateTime punchInTime,
+        @jsonKeyTimestamp DateTime punchOutTime), {
     @required Result notSignedIn(),
     @required Result undefined(),
     @required Result error(),
@@ -591,15 +521,10 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(
-        @required
-            String uid,
-        @required
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp today,
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp punchInTime,
-        @JsonKey(fromJson: TimestampConverter.fromTimestamp, toJson: TimestampConverter.toTimestamp)
-            Timestamp punchOutTime), {
+        @required String uid,
+        @required @jsonKeyTimestamp DateTime today,
+        @jsonKeyTimestamp DateTime punchInTime,
+        @jsonKeyTimestamp DateTime punchOutTime), {
     Result notSignedIn(),
     Result undefined(),
     Result error(),

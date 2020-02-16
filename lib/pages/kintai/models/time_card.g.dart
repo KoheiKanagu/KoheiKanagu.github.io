@@ -9,20 +9,18 @@ part of 'time_card.dart';
 _$_TimeCard _$_$_TimeCardFromJson(Map<String, dynamic> json) {
   return _$_TimeCard(
     uid: json['uid'] as String,
-    today: TimestampConverter.fromTimestamp(json['today'] as Timestamp),
-    punchInTime:
-        TimestampConverter.fromTimestamp(json['punchInTime'] as Timestamp),
-    punchOutTime:
-        TimestampConverter.fromTimestamp(json['punchOutTime'] as Timestamp),
+    today: timestampToDateTime(json['today'] as Timestamp),
+    punchInTime: timestampToDateTime(json['punchInTime'] as Timestamp),
+    punchOutTime: timestampToDateTime(json['punchOutTime'] as Timestamp),
   );
 }
 
 Map<String, dynamic> _$_$_TimeCardToJson(_$_TimeCard instance) =>
     <String, dynamic>{
       'uid': instance.uid,
-      'today': TimestampConverter.toTimestamp(instance.today),
-      'punchInTime': TimestampConverter.toTimestamp(instance.punchInTime),
-      'punchOutTime': TimestampConverter.toTimestamp(instance.punchOutTime),
+      'today': dateTimeToTimestamp(instance.today),
+      'punchInTime': dateTimeToTimestamp(instance.punchInTime),
+      'punchOutTime': dateTimeToTimestamp(instance.punchOutTime),
     };
 
 _$_NotSignedIn _$_$_NotSignedInFromJson(Map<String, dynamic> json) {

@@ -1,4 +1,5 @@
 import 'package:KoheiKanagu_github_io/pages/kintai/models/time_card.dart';
+import 'package:KoheiKanagu_github_io/util/converter/timestamp_support.dart';
 import 'package:KoheiKanagu_github_io/util/logger.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -21,7 +22,7 @@ class TimeCardNotifier extends ValueNotifier<TimeCard> {
     }
 
     final now = DateTime.now();
-    final today = Timestamp.fromDate(DateTime(now.year, now.month, now.day));
+    final today = DateTime(now.year, now.month, now.day);
 
     final querySnapshot = await Firestore.instance
         .collection(TimeCard.collectionPath)
@@ -112,7 +113,7 @@ class TimeCardNotifier extends ValueNotifier<TimeCard> {
         final card = TimeCard(
           uid: uid,
           today: today,
-          punchInTime: Timestamp.now(),
+          punchInTime: DateTime.now(),
           punchOutTime: punchOutTime,
         );
 
@@ -132,7 +133,7 @@ class TimeCardNotifier extends ValueNotifier<TimeCard> {
           uid: uid,
           today: today,
           punchInTime: punchInTime,
-          punchOutTime: Timestamp.now(),
+          punchOutTime: DateTime.now(),
         );
 
         punchOutTime == null ? _save(card) : _buildAlertDialog(card);
