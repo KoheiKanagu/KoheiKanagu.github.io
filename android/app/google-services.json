@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "939401085199",
+    "firebase_url": "https://kingu-42.firebaseio.com",
+    "project_id": "kingu-42",
+    "storage_bucket": "kingu-42.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939401085199:android:d5d31653f0322611413e7a",
+        "android_client_info": {
+          "package_name": "dev.kingu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "939401085199-u8fao44hnsnn7pmnrqoa2i7c3grrgiij.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMnPU6tMDITWaNlpE-WyyOVs7_09IY9AY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939401085199-u8fao44hnsnn7pmnrqoa2i7c3grrgiij.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "939401085199-vck5929k0h9v5unimhl81nmkpk0vc559.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "dev.kingu"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
