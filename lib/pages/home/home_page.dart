@@ -19,33 +19,35 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            pinned: true,
-            floating: true,
-            snap: true,
-            expandedHeight: 256,
-            flexibleSpace: nyan,
-          ),
-          SliverPadding(
-            padding: const EdgeInsets.all(12),
-            sliver: SliverList(
-              delegate: SliverChildListDelegate.fixed(
-                [
-                  ..._buildLinkCards(),
-                  Container(height: 32),
-                  ..._buildProfileCard(),
-                  Container(height: 32),
-                  LoginForm(),
-                  Container(height: 32),
-                  const Text('作ったやつとか'),
-                  ..._buildContentsCards(context),
-                ],
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              pinned: true,
+              floating: true,
+              snap: true,
+              expandedHeight: 256,
+              flexibleSpace: nyan,
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.all(12),
+              sliver: SliverList(
+                delegate: SliverChildListDelegate.fixed(
+                  [
+                    ..._buildLinkCards(),
+                    Container(height: 32),
+                    ..._buildProfileCard(),
+                    Container(height: 32),
+                    LoginForm(),
+                    Container(height: 32),
+                    const Text('作ったやつとか'),
+                    ..._buildContentsCards(context),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
