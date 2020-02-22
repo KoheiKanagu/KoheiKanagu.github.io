@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
 
   static const routeName = '/';
 
-  final Image nyan = Image.asset('images/nyan.gif');
+  final Image nyan = Image.asset('assets/images/nyan.gif');
   final String sourceUrl =
       'https://github.com/KoheiKanagu/KoheiKanagu.github.io';
   final String email = 'kanagu@kingu.dev';
