@@ -10,7 +10,7 @@ const RESOURCES = {
 "/assets/fonts/MaterialIcons-Regular.ttf": "56d3ffdef7a25659eab6a68a3fbfaf16",
 "/assets/AssetManifest.json": "c08b0df2d52e41455072319a32cb561a",
 "/index.html": "9385d7b3689519c61643f4d1a7c4ad62",
-"/main.dart.js": "e7021b51bf6bfe62c0e14ee98bdf3f01"
+"/main.dart.js": "7f3f597e2a0fa85655563678296e18bf"
 };
 
 self.addEventListener('activate', function (event) {
