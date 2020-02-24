@@ -1,4 +1,5 @@
 import 'package:KoheiKanagu_github_io/pages/playground/pages/detail1_page.dart';
+import 'package:KoheiKanagu_github_io/pages/playground/pages/detail2_page.dart';
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 
@@ -54,6 +55,19 @@ class AnimationsPage extends StatelessWidget {
               closedBuilder: (context, action) {
                 return ListTile(
                   title: Text('${ContainerTransitionType.fadeThrough}'),
+                );
+              },
+            ),
+            OpenContainer(
+              transitionType: ContainerTransitionType.fade,
+              openBuilder: (context, action) {
+                return Detail2Page(
+                  openContainer: action,
+                );
+              },
+              closedBuilder: (context, action) {
+                return const ListTile(
+                  title: Text('with AppBar'),
                 );
               },
             ),
