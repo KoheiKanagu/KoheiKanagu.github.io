@@ -1,3 +1,4 @@
+import 'package:KoheiKanagu_github_io/pages/playground/pages/animations_page.dart';
 import 'package:flutter/material.dart';
 
 class PlayGroundPage extends StatelessWidget {
@@ -11,8 +12,9 @@ class PlayGroundPage extends StatelessWidget {
       appBar: AppBar(),
       body: ListView(
         children: <Widget>[
-          const ListTile(
-            title: const Text('Hi'),
+          ListTile(
+            title: Text(AnimationsPage.routeName),
+            onTap: () => Navigator.pushNamed(context, AnimationsPage.routeName),
           ),
         ],
       ),
