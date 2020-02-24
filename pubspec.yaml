@@ -17,6 +17,7 @@ dependencies:
   freezed_annotation: any
   simple_logger: ^1.6.0+1
   firebase_core: ^0.4.4
+  animations: ^1.0.0+5
   flutter:
     sdk: flutter
 
