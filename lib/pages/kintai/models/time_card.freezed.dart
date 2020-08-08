@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'time_card.dart';
 
@@ -7,6 +7,7 @@ part of 'time_card.dart';
 // FreezedGenerator
 // **************************************************************************
 
+T _$identity<T>(T value) => value;
 TimeCard _$TimeCardFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType'] as String) {
     case 'default':
@@ -23,24 +24,59 @@ TimeCard _$TimeCardFromJson(Map<String, dynamic> json) {
   }
 }
 
+class _$TimeCardTearOff {
+  const _$TimeCardTearOff();
+
+// ignore: unused_element
+  _TimeCard call(
+      {@required String uid,
+      @required @jsonKeyTimestamp DateTime today,
+      @jsonKeyTimestamp DateTime punchInTime,
+      @jsonKeyTimestamp DateTime punchOutTime}) {
+    return _TimeCard(
+      uid: uid,
+      today: today,
+      punchInTime: punchInTime,
+      punchOutTime: punchOutTime,
+    );
+  }
+
+// ignore: unused_element
+  _NotSignedIn notSignedIn() {
+    return const _NotSignedIn();
+  }
+
+// ignore: unused_element
+  _Undefined undefined() {
+    return const _Undefined();
+  }
+
+// ignore: unused_element
+  _Error error() {
+    return const _Error();
+  }
+}
+
+// ignore: unused_element
+const $TimeCard = _$TimeCardTearOff();
+
 mixin _$TimeCard {
   @optionalTypeArgs
   Result when<Result extends Object>(
     Result $default(
-        @required String uid,
-        @required @jsonKeyTimestamp DateTime today,
+        String uid,
+        @jsonKeyTimestamp DateTime today,
         @jsonKeyTimestamp DateTime punchInTime,
         @jsonKeyTimestamp DateTime punchOutTime), {
     @required Result notSignedIn(),
     @required Result undefined(),
     @required Result error(),
   });
-
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(
-        @required String uid,
-        @required @jsonKeyTimestamp DateTime today,
+        String uid,
+        @jsonKeyTimestamp DateTime today,
         @jsonKeyTimestamp DateTime punchInTime,
         @jsonKeyTimestamp DateTime punchOutTime), {
     Result notSignedIn(),
@@ -48,7 +84,6 @@ mixin _$TimeCard {
     Result error(),
     @required Result orElse(),
   });
-
   @optionalTypeArgs
   Result map<Result extends Object>(
     Result $default(_TimeCard value), {
@@ -56,7 +91,6 @@ mixin _$TimeCard {
     @required Result undefined(_Undefined value),
     @required Result error(_Error value),
   });
-
   @optionalTypeArgs
   Result maybeMap<Result extends Object>(
     Result $default(_TimeCard value), {
@@ -65,8 +99,57 @@ mixin _$TimeCard {
     Result error(_Error value),
     @required Result orElse(),
   });
-
   Map<String, dynamic> toJson();
+}
+
+abstract class $TimeCardCopyWith<$Res> {
+  factory $TimeCardCopyWith(TimeCard value, $Res Function(TimeCard) then) =
+      _$TimeCardCopyWithImpl<$Res>;
+}
+
+class _$TimeCardCopyWithImpl<$Res> implements $TimeCardCopyWith<$Res> {
+  _$TimeCardCopyWithImpl(this._value, this._then);
+
+  final TimeCard _value;
+  // ignore: unused_field
+  final $Res Function(TimeCard) _then;
+}
+
+abstract class _$TimeCardCopyWith<$Res> {
+  factory _$TimeCardCopyWith(_TimeCard value, $Res Function(_TimeCard) then) =
+      __$TimeCardCopyWithImpl<$Res>;
+  $Res call(
+      {String uid,
+      @jsonKeyTimestamp DateTime today,
+      @jsonKeyTimestamp DateTime punchInTime,
+      @jsonKeyTimestamp DateTime punchOutTime});
+}
+
+class __$TimeCardCopyWithImpl<$Res> extends _$TimeCardCopyWithImpl<$Res>
+    implements _$TimeCardCopyWith<$Res> {
+  __$TimeCardCopyWithImpl(_TimeCard _value, $Res Function(_TimeCard) _then)
+      : super(_value, (v) => _then(v as _TimeCard));
+
+  @override
+  _TimeCard get _value => super._value as _TimeCard;
+
+  @override
+  $Res call({
+    Object uid = freezed,
+    Object today = freezed,
+    Object punchInTime = freezed,
+    Object punchOutTime = freezed,
+  }) {
+    return _then(_TimeCard(
+      uid: uid == freezed ? _value.uid : uid as String,
+      today: today == freezed ? _value.today : today as DateTime,
+      punchInTime:
+          punchInTime == freezed ? _value.punchInTime : punchInTime as DateTime,
+      punchOutTime: punchOutTime == freezed
+          ? _value.punchOutTime
+          : punchOutTime as DateTime,
+    ));
+  }
 }
 
 @JsonSerializable()
@@ -129,37 +212,21 @@ class _$_TimeCard with DiagnosticableTreeMixin implements _TimeCard {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      uid.hashCode ^
-      today.hashCode ^
-      punchInTime.hashCode ^
-      punchOutTime.hashCode;
+      const DeepCollectionEquality().hash(uid) ^
+      const DeepCollectionEquality().hash(today) ^
+      const DeepCollectionEquality().hash(punchInTime) ^
+      const DeepCollectionEquality().hash(punchOutTime);
 
   @override
-  _$_TimeCard copyWith({
-    Object uid = freezed,
-    Object today = freezed,
-    Object punchInTime = freezed,
-    Object punchOutTime = freezed,
-  }) {
-    assert(uid != null);
-    assert(today != null);
-    return _$_TimeCard(
-      uid: uid == freezed ? this.uid : uid as String,
-      today: today == freezed ? this.today : today as DateTime,
-      punchInTime:
-          punchInTime == freezed ? this.punchInTime : punchInTime as DateTime,
-      punchOutTime: punchOutTime == freezed
-          ? this.punchOutTime
-          : punchOutTime as DateTime,
-    );
-  }
+  _$TimeCardCopyWith<_TimeCard> get copyWith =>
+      __$TimeCardCopyWithImpl<_TimeCard>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>(
     Result $default(
-        @required String uid,
-        @required @jsonKeyTimestamp DateTime today,
+        String uid,
+        @jsonKeyTimestamp DateTime today,
         @jsonKeyTimestamp DateTime punchInTime,
         @jsonKeyTimestamp DateTime punchOutTime), {
     @required Result notSignedIn(),
@@ -177,8 +244,8 @@ class _$_TimeCard with DiagnosticableTreeMixin implements _TimeCard {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(
-        @required String uid,
-        @required @jsonKeyTimestamp DateTime today,
+        String uid,
+        @jsonKeyTimestamp DateTime today,
         @jsonKeyTimestamp DateTime punchInTime,
         @jsonKeyTimestamp DateTime punchOutTime), {
     Result notSignedIn(),
@@ -246,12 +313,23 @@ abstract class _TimeCard implements TimeCard {
   DateTime get punchInTime;
   @jsonKeyTimestamp
   DateTime get punchOutTime;
+  _$TimeCardCopyWith<_TimeCard> get copyWith;
+}
 
-  _TimeCard copyWith(
-      {String uid,
-      @jsonKeyTimestamp DateTime today,
-      @jsonKeyTimestamp DateTime punchInTime,
-      @jsonKeyTimestamp DateTime punchOutTime});
+abstract class _$NotSignedInCopyWith<$Res> {
+  factory _$NotSignedInCopyWith(
+          _NotSignedIn value, $Res Function(_NotSignedIn) then) =
+      __$NotSignedInCopyWithImpl<$Res>;
+}
+
+class __$NotSignedInCopyWithImpl<$Res> extends _$TimeCardCopyWithImpl<$Res>
+    implements _$NotSignedInCopyWith<$Res> {
+  __$NotSignedInCopyWithImpl(
+      _NotSignedIn _value, $Res Function(_NotSignedIn) _then)
+      : super(_value, (v) => _then(v as _NotSignedIn));
+
+  @override
+  _NotSignedIn get _value => super._value as _NotSignedIn;
 }
 
 @JsonSerializable()
@@ -284,8 +362,8 @@ class _$_NotSignedIn with DiagnosticableTreeMixin implements _NotSignedIn {
   @optionalTypeArgs
   Result when<Result extends Object>(
     Result $default(
-        @required String uid,
-        @required @jsonKeyTimestamp DateTime today,
+        String uid,
+        @jsonKeyTimestamp DateTime today,
         @jsonKeyTimestamp DateTime punchInTime,
         @jsonKeyTimestamp DateTime punchOutTime), {
     @required Result notSignedIn(),
@@ -303,8 +381,8 @@ class _$_NotSignedIn with DiagnosticableTreeMixin implements _NotSignedIn {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(
-        @required String uid,
-        @required @jsonKeyTimestamp DateTime today,
+        String uid,
+        @jsonKeyTimestamp DateTime today,
         @jsonKeyTimestamp DateTime punchInTime,
         @jsonKeyTimestamp DateTime punchOutTime), {
     Result notSignedIn(),
@@ -363,6 +441,21 @@ abstract class _NotSignedIn implements TimeCard {
       _$_NotSignedIn.fromJson;
 }
 
+abstract class _$UndefinedCopyWith<$Res> {
+  factory _$UndefinedCopyWith(
+          _Undefined value, $Res Function(_Undefined) then) =
+      __$UndefinedCopyWithImpl<$Res>;
+}
+
+class __$UndefinedCopyWithImpl<$Res> extends _$TimeCardCopyWithImpl<$Res>
+    implements _$UndefinedCopyWith<$Res> {
+  __$UndefinedCopyWithImpl(_Undefined _value, $Res Function(_Undefined) _then)
+      : super(_value, (v) => _then(v as _Undefined));
+
+  @override
+  _Undefined get _value => super._value as _Undefined;
+}
+
 @JsonSerializable()
 class _$_Undefined with DiagnosticableTreeMixin implements _Undefined {
   const _$_Undefined();
@@ -393,8 +486,8 @@ class _$_Undefined with DiagnosticableTreeMixin implements _Undefined {
   @optionalTypeArgs
   Result when<Result extends Object>(
     Result $default(
-        @required String uid,
-        @required @jsonKeyTimestamp DateTime today,
+        String uid,
+        @jsonKeyTimestamp DateTime today,
         @jsonKeyTimestamp DateTime punchInTime,
         @jsonKeyTimestamp DateTime punchOutTime), {
     @required Result notSignedIn(),
@@ -412,8 +505,8 @@ class _$_Undefined with DiagnosticableTreeMixin implements _Undefined {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(
-        @required String uid,
-        @required @jsonKeyTimestamp DateTime today,
+        String uid,
+        @jsonKeyTimestamp DateTime today,
         @jsonKeyTimestamp DateTime punchInTime,
         @jsonKeyTimestamp DateTime punchOutTime), {
     Result notSignedIn(),
@@ -472,6 +565,20 @@ abstract class _Undefined implements TimeCard {
       _$_Undefined.fromJson;
 }
 
+abstract class _$ErrorCopyWith<$Res> {
+  factory _$ErrorCopyWith(_Error value, $Res Function(_Error) then) =
+      __$ErrorCopyWithImpl<$Res>;
+}
+
+class __$ErrorCopyWithImpl<$Res> extends _$TimeCardCopyWithImpl<$Res>
+    implements _$ErrorCopyWith<$Res> {
+  __$ErrorCopyWithImpl(_Error _value, $Res Function(_Error) _then)
+      : super(_value, (v) => _then(v as _Error));
+
+  @override
+  _Error get _value => super._value as _Error;
+}
+
 @JsonSerializable()
 class _$_Error with DiagnosticableTreeMixin implements _Error {
   const _$_Error();
@@ -502,8 +609,8 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
   @optionalTypeArgs
   Result when<Result extends Object>(
     Result $default(
-        @required String uid,
-        @required @jsonKeyTimestamp DateTime today,
+        String uid,
+        @jsonKeyTimestamp DateTime today,
         @jsonKeyTimestamp DateTime punchInTime,
         @jsonKeyTimestamp DateTime punchOutTime), {
     @required Result notSignedIn(),
@@ -521,8 +628,8 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(
-        @required String uid,
-        @required @jsonKeyTimestamp DateTime today,
+        String uid,
+        @jsonKeyTimestamp DateTime today,
         @jsonKeyTimestamp DateTime punchInTime,
         @jsonKeyTimestamp DateTime punchOutTime), {
     Result notSignedIn(),
