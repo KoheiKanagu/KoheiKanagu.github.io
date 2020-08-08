@@ -60,6 +60,7 @@ class LeftTime extends StatelessWidget {
         fontSize: 128,
         fontWeight: FontWeight.bold,
         color: Colors.red,
+        fontFamily: 'Courier',
       ),
     );
   }
