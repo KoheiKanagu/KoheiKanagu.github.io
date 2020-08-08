@@ -12,11 +12,11 @@ class KintaiPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: context.read<TimeCardNotifier>().scaffoldKey,
+      key: context.watch<TimeCardNotifier>().scaffoldKey,
       appBar: AppBar(),
       body: Builder(
         builder: (context) {
-          context.read<TimeCardNotifier>().fetchToday();
+          context.watch<TimeCardNotifier>().fetchToday();
           return const Center(child: KintaiButton());
         },
       ),
