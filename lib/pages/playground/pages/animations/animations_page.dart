@@ -22,7 +22,7 @@ class AnimationsPage extends StatelessWidget {
         },
         closedBuilder: (context, actions) {
           return FloatingActionButton(
-            child: Icon(Icons.add),
+            child: const Icon(Icons.add),
             onPressed: actions,
           );
         },

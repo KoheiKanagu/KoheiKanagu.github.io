@@ -43,7 +43,7 @@ class _LoginButton extends StatelessWidget {
     if (context.watch<LoginNotifier>().user != null) {
       return MaterialButton(
         color: Colors.red,
-        child: Text(
+        child: const Text(
           'ログアウト',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
@@ -64,7 +64,7 @@ class _LoginButton extends StatelessWidget {
           );
         }
       },
-      child: Text(
+      child: const Text(
         'ログイン',
         style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       ),
@@ -93,7 +93,7 @@ class _LoginForm extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             TextFormField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'メール',
                 icon: Icon(Icons.account_box),
               ),
@@ -103,7 +103,7 @@ class _LoginForm extends StatelessWidget {
                   EmailValidator.validate(v) ? null : '不正なメールアドレス',
             ),
             TextFormField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'パスワード',
                 icon: Icon(Icons.lock),
               ),

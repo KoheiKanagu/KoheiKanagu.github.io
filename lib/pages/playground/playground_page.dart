@@ -17,7 +17,7 @@ class PlayGroundPage extends StatelessWidget {
         children: <Widget>[
           LoginForm(),
           ListTile(
-            title: Text(AnimationsPage.routeName),
+            title: const Text(AnimationsPage.routeName),
             onTap: () => Navigator.pushNamed(context, AnimationsPage.routeName),
           ),
           ListTile(

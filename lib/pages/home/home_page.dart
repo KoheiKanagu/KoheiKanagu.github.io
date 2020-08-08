@@ -47,18 +47,18 @@ class HomePage extends StatelessWidget {
   }
 
   List<Widget> _buildProfileCard() => [
-        Card(
+        const Card(
           child: ListTile(
-            title: const Text('Kohei Kanagu'),
-            subtitle: const Text('金具 浩平'),
+            title: Text('Kohei Kanagu'),
+            subtitle: Text('金具 浩平'),
             leading: Icon(Icons.tag_faces),
           ),
         ),
         Card(
           child: ListTile(
             title: Text(email),
-            leading: Icon(Icons.mail),
-            trailing: Icon(Icons.send),
+            leading: const Icon(Icons.mail),
+            trailing: const Icon(Icons.send),
             onTap: () => launch('mailto:$email'),
           ),
         ),
@@ -66,8 +66,8 @@ class HomePage extends StatelessWidget {
           child: ListTile(
             title: const Text('このサイト'),
             subtitle: Text(sourceUrl),
-            leading: Icon(Icons.code),
-            trailing: Icon(Icons.open_in_new),
+            leading: const Icon(Icons.code),
+            trailing: const Icon(Icons.open_in_new),
             onTap: () => launch(sourceUrl),
           ),
         ),
@@ -95,7 +95,7 @@ class HomePage extends StatelessWidget {
     return Card(
       child: ListTile(
         leading: Icon(iconData),
-        trailing: Icon(Icons.open_in_new),
+        trailing: const Icon(Icons.open_in_new),
         title: Text(link),
         onTap: () => launch(link),
       ),
@@ -107,7 +107,7 @@ class HomePage extends StatelessWidget {
       child: ListTile(
         leading: const Icon(Icons.category),
         trailing: const Icon(Icons.navigate_next),
-        title: const Text("Playground"),
+        title: const Text('Playground'),
         onTap: () => Navigator.pushNamed(context, PlayGroundPage.routeName),
       ),
     );

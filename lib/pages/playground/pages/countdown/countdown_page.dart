@@ -14,7 +14,7 @@ class CountdownPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.red),
+        iconTheme: const IconThemeData(color: Colors.red),
         backgroundColor: const Color.fromARGB(0, 0, 0, 0),
         elevation: 0,
       ),
@@ -23,7 +23,7 @@ class CountdownPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
+              const Text(
                 'カウントダウン',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 68),
               ),
@@ -56,7 +56,7 @@ class LeftTime extends StatelessWidget {
 
     return Text(
       text,
-      style: TextStyle(
+      style: const TextStyle(
         fontSize: 128,
         fontWeight: FontWeight.bold,
         color: Colors.red,
