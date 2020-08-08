@@ -86,6 +86,10 @@ class HomePage extends StatelessWidget {
           FontAwesomeIcons.facebook,
           'https://www.facebook.com/k.g.kohei',
         ),
+        _buildLinkCard(
+          FontAwesomeIcons.steam,
+          'https://steamcommunity.com/id/i_am_kingu',
+        ),
       ];
 
   Widget _buildLinkCard(
