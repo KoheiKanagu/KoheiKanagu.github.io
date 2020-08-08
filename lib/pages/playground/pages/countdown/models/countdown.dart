@@ -16,7 +16,7 @@ class Countdown extends ValueNotifier<Duration> {
     );
   }
 
-  static final DateTime deadline = DateTime(2020, 1, 31, 17, 0);
+  static final DateTime deadline = DateTime(2020, 12, 31, 23, 59);
 
   Timer _timer;
 
