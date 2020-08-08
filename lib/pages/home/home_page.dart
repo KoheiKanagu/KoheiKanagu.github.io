@@ -1,6 +1,3 @@
-import 'package:KoheiKanagu_github_io/pages/countdown/countdown_page.dart';
-import 'package:KoheiKanagu_github_io/pages/home/widgets/login_form.dart';
-import 'package:KoheiKanagu_github_io/pages/kintai/kintai_page.dart';
 import 'package:KoheiKanagu_github_io/pages/playground/playground_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -38,10 +35,7 @@ class HomePage extends StatelessWidget {
                     Container(height: 32),
                     ..._buildProfileCard(),
                     Container(height: 32),
-                    LoginForm(),
-                    Container(height: 32),
-                    const Text('作ったやつとか'),
-                    ..._buildContentsCards(context),
+                    _buildPlaygroundCard(context),
                   ],
                 ),
               ),
@@ -108,39 +102,13 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  List<Widget> _buildContentsCards(BuildContext context) => [
-        _buildContentsCard(
-          context,
-          Icons.timer,
-          'カウントダウン',
-          CountdownPage.routeName,
-        ),
-        _buildContentsCard(
-          context,
-          Icons.work,
-          '勤怠',
-          KintaiPage.routeName,
-        ),
-        _buildContentsCard(
-          context,
-          Icons.category,
-          'Playground',
-          PlayGroundPage.routeName,
-        ),
-      ];
-
-  Widget _buildContentsCard(
-    BuildContext context,
-    IconData iconData,
-    String title,
-    String route,
-  ) {
+  Widget _buildPlaygroundCard(BuildContext context) {
     return Card(
       child: ListTile(
-        leading: Icon(iconData),
-        trailing: Icon(Icons.navigate_next),
-        title: Text(title),
-        onTap: () => Navigator.pushNamed(context, route),
+        leading: const Icon(Icons.category),
+        trailing: const Icon(Icons.navigate_next),
+        title: const Text("Playground"),
+        onTap: () => Navigator.pushNamed(context, PlayGroundPage.routeName),
       ),
     );
   }

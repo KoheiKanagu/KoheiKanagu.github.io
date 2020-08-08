@@ -1,12 +1,13 @@
-import 'package:KoheiKanagu_github_io/pages/kintai/notifiers/time_card_notifier.dart';
-import 'package:KoheiKanagu_github_io/pages/kintai/widgets/kintai_button.dart';
+import 'package:KoheiKanagu_github_io/pages/playground/pages/kintai/notifiers/time_card_notifier.dart';
+import 'package:KoheiKanagu_github_io/pages/playground/pages/kintai/widgets/kintai_button.dart';
+import 'package:KoheiKanagu_github_io/pages/playground/playground_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class KintaiPage extends StatelessWidget {
   const KintaiPage({Key key}) : super(key: key);
 
-  static const routeName = '/kintai';
+  static const routeName = '${PlayGroundPage.routeName}/kintai';
 
   @override
   Widget build(BuildContext context) {

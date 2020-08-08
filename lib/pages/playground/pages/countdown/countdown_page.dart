@@ -1,11 +1,12 @@
-import 'package:KoheiKanagu_github_io/pages/countdown/models/countdown.dart';
+import 'package:KoheiKanagu_github_io/pages/playground/pages/countdown/models/countdown.dart';
+import 'package:KoheiKanagu_github_io/pages/playground/playground_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class CountdownPage extends StatelessWidget {
   const CountdownPage({Key key}) : super(key: key);
 
-  static const routeName = '/countdown';
+  static const routeName = '${PlayGroundPage.routeName}/countdown';
 
   @override
   Widget build(BuildContext context) {

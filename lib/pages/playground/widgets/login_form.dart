@@ -1,4 +1,4 @@
-import 'package:KoheiKanagu_github_io/pages/home/notifiers/login_notifier.dart';
+import 'package:KoheiKanagu_github_io/pages/playground/notifiers/login_notifier.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

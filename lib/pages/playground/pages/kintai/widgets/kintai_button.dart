@@ -1,4 +1,4 @@
-import 'package:KoheiKanagu_github_io/pages/kintai/notifiers/time_card_notifier.dart';
+import 'package:KoheiKanagu_github_io/pages/playground/pages/kintai/notifiers/time_card_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
