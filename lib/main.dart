@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:koheikanagu_github_io/pages/home/home_page.dart';
 import 'package:logger/logger.dart';
 
 Future<void> main() async {
@@ -88,18 +89,12 @@ class MyRouter {
 
   final Reader reader;
 
-  Route<dynamic> onGenerateRoute(RouteSettings settings) {
-    return MaterialPageRoute(
-      builder: (_) => Scaffold(
-        appBar: AppBar(
-          title: Text('hello'),
+  Route<dynamic> onGenerateRoute(RouteSettings settings) => MaterialPageRoute(
+        builder: (_) => HomePage(),
+        settings: const RouteSettings(
+          name: HomePage.routeName,
         ),
-      ),
-      settings: const RouteSettings(
-        name: 'name',
-      ),
-    );
-  }
+      );
 }
 
 final logger = Logger(
