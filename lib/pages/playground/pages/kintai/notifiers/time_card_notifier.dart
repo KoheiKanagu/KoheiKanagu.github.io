@@ -13,7 +13,7 @@ class TimeCardNotifier extends StateNotifier<TimeCard> {
   DocumentReference _documentReference;
 
   Future<void> fetchToday() async {
-    final user = await FirebaseAuth.instance.currentUser;
+    final user = FirebaseAuth.instance.currentUser;
 
     if (user == null) {
       logger.warning('Not signed in', null, StackTrace.current);
