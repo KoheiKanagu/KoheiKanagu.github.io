@@ -21,6 +21,7 @@ dependencies:
   hooks_riverpod: ^0.13.0-nullsafety.3
   gap: ^2.0.0-nullsafety.1
   logger: ^1.0.0-nullsafety.0
+  flutter_hooks: ^0.16.0
   flutter:
     sdk: flutter
   flutter_localizations:
