@@ -1,37 +1,37 @@
 name: GitHub Pages Deploy
 on:
   push:
-    branches: 
+    branches:
       - develop
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Flutter action
-      uses: subosito/flutter-action@v1.3.2
-      with:
-        channel: 'beta'
+      - name: Flutter action
+        uses: subosito/flutter-action@v1
+        with:
+          channel: 'beta'
 
-    - name: setup
-      run: |
-        flutter config --enable-web
-        flutter pub get
-        flutter build web
+      - name: setup
+        run: |
+          flutter config --enable-web
+          flutter pub get
+          flutter build web
 
-    - name: GitHub Pages action
-      uses: peaceiris/actions-gh-pages@v3.6.4
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_branch: master
-        publish_dir: ./build/web
+      - name: GitHub Pages action
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: master
+          publish_dir: ./build/web
 
-    - name: Firebase Deploy
-      uses: w9jds/firebase-action@v1.5.0
-      with:
-        args: deploy
-      env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - name: Firebase Deploy
+        uses: w9jds/firebase-action@v2.0.0
+        with:
+          args: deploy
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
