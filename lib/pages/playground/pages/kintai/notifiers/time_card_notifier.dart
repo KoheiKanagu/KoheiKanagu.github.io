@@ -1,10 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:koheikanagu_github_io/main.dart';
 import 'package:koheikanagu_github_io/pages/playground/pages/kintai/models/time_card.dart';
-import 'package:koheikanagu_github_io/util/logger.dart';
 
-class TimeCardNotifier extends ValueNotifier<TimeCard> {
+class TimeCardNotifier extends StateNotifier<TimeCard> {
   TimeCardNotifier() : super(const TimeCard.undefined());
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
@@ -12,70 +13,70 @@ class TimeCardNotifier extends ValueNotifier<TimeCard> {
   DocumentReference _documentReference;
 
   Future<void> fetchToday() async {
-    final user = await FirebaseAuth.instance.currentUser();
+    final user = await FirebaseAuth.instance.currentUser;
 
     if (user == null) {
-      logger.warning('Not signed in');
-      value = const TimeCard.notSignedIn();
+      logger.warning('Not signed in', null, StackTrace.current);
+      state = const TimeCard.notSignedIn();
       return;
     }
 
     final now = DateTime.now();
     final today = DateTime(now.year, now.month, now.day);
 
-    final querySnapshot = await Firestore.instance
+    final querySnapshot = await FirebaseFirestore.instance
         .collection(TimeCard.collectionPath)
         .where('uid', isEqualTo: user.uid)
         .where('today', isEqualTo: today)
         .limit(1)
-        .getDocuments();
+        .get();
 
-    if (querySnapshot.documents.isEmpty) {
-      logger.info('Create New Card');
+    if (querySnapshot.docs.isEmpty) {
+      logger.info('Create New Card', null, StackTrace.current);
 
-      value = TimeCard(uid: user.uid, today: today);
+      state = TimeCard(uid: user.uid, today: today);
       return;
     }
 
-    logger.info('Fetched Card');
+    logger.info('Fetched Card', null, StackTrace.current);
 
-    final snapshot = querySnapshot.documents.single;
+    final snapshot = querySnapshot.docs.single;
     _documentReference = snapshot.reference;
-    value = TimeCard.fromJson(snapshot.data);
+    state = TimeCard.fromJson(snapshot.data());
   }
 
   void _save(TimeCard timeCard) {
     assert(timeCard != null);
 
     if (_documentReference == null) {
-      Firestore.instance
+      FirebaseFirestore.instance
           .collection(TimeCard.collectionPath)
           .add(timeCard.toJson())
           .then((ref) {
-        logger.info('Success add: $ref');
+        logger.info('Success add: $ref', null, StackTrace.current);
         scaffoldKey.currentState.showSnackBar(
           const SnackBar(content: Text('Success')),
         );
 
         _documentReference = ref;
-        value = timeCard;
+        state = timeCard;
       }, onError: () {
-        logger.severe('error');
+        logger.error('error', null, StackTrace.current);
       });
     } else {
-      Firestore.instance
+      FirebaseFirestore.instance
           .collection(TimeCard.collectionPath)
-          .document(_documentReference.documentID)
-          .setData(timeCard.toJson())
+          .doc(_documentReference.id)
+          .set(timeCard.toJson())
           .then((_) {
-        logger.info('Success setData');
+        logger.info('Success setData', null, StackTrace.current);
         scaffoldKey.currentState.showSnackBar(
           const SnackBar(content: Text('Success')),
         );
 
-        value = timeCard;
+        state = timeCard;
       }, onError: () {
-        logger.severe('error');
+        logger.error('error', null, StackTrace.current);
       });
     }
   }
@@ -107,7 +108,7 @@ class TimeCardNotifier extends ValueNotifier<TimeCard> {
   Future<void> punchIn() async {
     await fetchToday();
 
-    value.maybeWhen(
+    state.maybeWhen(
       (uid, today, punchInTime, punchOutTime) {
         final card = TimeCard(
           uid: uid,
@@ -119,14 +120,14 @@ class TimeCardNotifier extends ValueNotifier<TimeCard> {
         punchInTime == null ? _save(card) : _buildAlertDialog(card);
       },
       orElse: () {
-        logger.warning('before fetch');
+        logger.warning('before fetch', null, StackTrace.current);
       },
     );
   }
 
   Future<void> punchOut() async {
     await fetchToday();
-    value.maybeWhen(
+    state.maybeWhen(
       (uid, today, punchInTime, punchOutTime) {
         final card = TimeCard(
           uid: uid,
@@ -138,7 +139,7 @@ class TimeCardNotifier extends ValueNotifier<TimeCard> {
         punchOutTime == null ? _save(card) : _buildAlertDialog(card);
       },
       orElse: () {
-        logger.warning('before fetch');
+        logger.warning('before fetch', null, StackTrace.current);
       },
     );
   }

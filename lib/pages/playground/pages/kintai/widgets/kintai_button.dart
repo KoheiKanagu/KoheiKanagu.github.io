@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:koheikanagu_github_io/pages/playground/pages/kintai/notifiers/time_card_notifier.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:koheikanagu_github_io/pages/playground/pages/kintai/kintai_page.dart';
 
-class KintaiButton extends StatelessWidget {
+class KintaiButton extends HookWidget {
   const KintaiButton({Key key}) : super(key: key);
 
   TextStyle get _textStyle => const TextStyle(
@@ -13,7 +14,7 @@ class KintaiButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final notifier = context.watch<TimeCardNotifier>();
+    final notifier = useProvider(timeCardNotifier);
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -28,7 +29,7 @@ class KintaiButton extends StatelessWidget {
                 child: Text('出勤', style: _textStyle),
               ),
               Container(height: 12),
-              notifier.value.when(
+              useProvider(timeCardNotifier.state).when(
                 (uid, today, punchInTime, punchOutTime) =>
                     Text(punchInTime?.toIso8601String() ?? '未設定'),
                 notSignedIn: () => const Text('未サインイン'),
@@ -48,7 +49,7 @@ class KintaiButton extends StatelessWidget {
                 child: Text('退勤', style: _textStyle),
               ),
               Container(height: 12),
-              notifier.value.when(
+              useProvider(timeCardNotifier.state).when(
                 (uid, today, punchInTime, punchOutTime) =>
                     Text(punchOutTime?.toIso8601String() ?? '未設定'),
                 notSignedIn: () => const Text('未サインイン'),

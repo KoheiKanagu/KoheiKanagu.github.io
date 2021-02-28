@@ -1,24 +1,20 @@
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
-import 'package:koheikanagu_github_io/util/logger.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:koheikanagu_github_io/main.dart';
 
-class LoginNotifier extends ChangeNotifier {
-  LoginNotifier() : super() {
-    _onAuthStateStream =
-        FirebaseAuth.instance.onAuthStateChanged.listen((user) {
-      logger.info(user?.uid);
-      _user = user;
-      notifyListeners();
+class LoginNotifier extends StateNotifier<User> {
+  LoginNotifier(this.firebaseAuth) : super(null) {
+    _onAuthStateStream = firebaseAuth.authStateChanges().listen((user) {
+      logger.info('authStateChange', user?.uid, null);
+      state = user;
     });
   }
 
-  FirebaseUser _user;
+  final FirebaseAuth firebaseAuth;
 
-  FirebaseUser get user => _user;
-
-  StreamSubscription<FirebaseUser> _onAuthStateStream;
+  StreamSubscription<User> _onAuthStateStream;
 
   @override
   void dispose() {
@@ -26,15 +22,12 @@ class LoginNotifier extends ChangeNotifier {
     super.dispose();
   }
 
-  Future<bool> login(String email, String password) {
-    return FirebaseAuth.instance
-        .signInWithEmailAndPassword(email: email, password: password)
-        .then((value) => true)
-        .catchError(() => false)
-        .whenComplete(notifyListeners);
-  }
+  Future<bool> login(String email, String password) => firebaseAuth
+      .signInWithEmailAndPassword(email: email, password: password)
+      .then((value) => true)
+      .catchError(() => false);
 
   void logout() {
-    FirebaseAuth.instance.signOut();
+    firebaseAuth.signOut();
   }
 }

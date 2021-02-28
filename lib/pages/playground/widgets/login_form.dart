@@ -1,7 +1,9 @@
 import 'package:email_validator/email_validator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:koheikanagu_github_io/pages/playground/notifiers/login_notifier.dart';
-import 'package:provider/provider.dart';
 
 class LoginForm extends StatelessWidget {
   final _emailCtrl = TextEditingController();
@@ -12,14 +14,10 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: ChangeNotifierProvider(
-        create: (_) => LoginNotifier(),
-        child: ListTile(
-          contentPadding:
-              const EdgeInsets.only(bottom: 12, left: 12, right: 12),
-          title: _LoginForm(_emailCtrl, _passCtrl, _formKey),
-          trailing: _LoginButton(_emailCtrl, _passCtrl, _formKey),
-        ),
+      child: ListTile(
+        contentPadding: const EdgeInsets.only(bottom: 12, left: 12, right: 12),
+        title: _LoginForm(_emailCtrl, _passCtrl, _formKey),
+        trailing: _LoginButton(_emailCtrl, _passCtrl, _formKey),
       ),
     );
   }
@@ -40,14 +38,14 @@ class _LoginButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (context.watch<LoginNotifier>().user != null) {
+    if (useProvider(loginNotifier.state) != null) {
       return MaterialButton(
         color: Colors.red,
         child: const Text(
           'ログアウト',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        onPressed: () => context.read<LoginNotifier>().logout(),
+        onPressed: () => context.read(loginNotifier).logout(),
       );
     }
 
@@ -56,7 +54,7 @@ class _LoginButton extends StatelessWidget {
       onPressed: () async {
         if (_formKey.currentState.validate()) {
           final result = await context
-              .read<LoginNotifier>()
+              .read(loginNotifier)
               .login(_emailCtrl.text, _passCtrl.text);
 
           Scaffold.of(context).showSnackBar(
@@ -72,7 +70,7 @@ class _LoginButton extends StatelessWidget {
   }
 }
 
-class _LoginForm extends StatelessWidget {
+class _LoginForm extends HookWidget {
   const _LoginForm(
     this._emailCtrl,
     this._passCtrl,
@@ -98,7 +96,7 @@ class _LoginForm extends StatelessWidget {
                 icon: Icon(Icons.account_box),
               ),
               controller: _emailCtrl,
-              enabled: context.watch<LoginNotifier>().user == null,
+              enabled: useProvider(loginNotifier.state) == null,
               validator: (v) =>
                   EmailValidator.validate(v) ? null : '不正なメールアドレス',
             ),
@@ -109,10 +107,14 @@ class _LoginForm extends StatelessWidget {
               ),
               obscureText: true,
               controller: _passCtrl,
-              enabled: context.watch<LoginNotifier>().user == null,
+              enabled: useProvider(loginNotifier.state) == null,
               validator: (v) => v.isEmpty ? '空欄' : null,
             ),
           ],
         ));
   }
 }
+
+final loginNotifier = StateNotifierProvider(
+  (ref) => LoginNotifier(FirebaseAuth.instance),
+);
