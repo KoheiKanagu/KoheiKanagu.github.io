@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:koheikanagu_github_io/pages/playground/pages/countdown/models/countdown.dart';
 import 'package:koheikanagu_github_io/pages/playground/playground_page.dart';
-import 'package:provider/provider.dart';
 
 class CountdownPage extends StatelessWidget {
   const CountdownPage({Key key}) : super(key: key);
@@ -31,10 +32,7 @@ class CountdownPage extends StatelessWidget {
                 '${dl.year}年${dl.month}月${dl.day}日${dl.hour}時の提出期限まであと',
                 style: const TextStyle(fontSize: 48),
               ),
-              ValueListenableProvider(
-                create: (_) => Countdown(),
-                child: LeftTime(),
-              ),
+              LeftTime(),
             ],
           ),
         ),
@@ -43,10 +41,10 @@ class CountdownPage extends StatelessWidget {
   }
 }
 
-class LeftTime extends StatelessWidget {
+class LeftTime extends HookWidget {
   @override
   Widget build(BuildContext context) {
-    final value = context.watch<Duration>();
+    final value = useProvider(countdownProvider.state);
 
     final text = '${value.inDays}日'
         "${value.inHours?.remainder(24).toString().padLeft(2, "0")}:"
@@ -65,3 +63,7 @@ class LeftTime extends StatelessWidget {
     );
   }
 }
+
+final countdownProvider = StateNotifierProvider.autoDispose(
+  (ref) => Countdown(),
+);

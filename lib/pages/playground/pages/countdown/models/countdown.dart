@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class Countdown extends ValueNotifier<Duration> {
+class Countdown extends StateNotifier<Duration> {
   Countdown() : super(const Duration()) {
     if (deadline.difference(DateTime.now()).isNegative) {
       return;
@@ -11,7 +11,7 @@ class Countdown extends ValueNotifier<Duration> {
     _timer = Timer.periodic(
       const Duration(milliseconds: 1),
       (_) {
-        value = deadline.difference(DateTime.now());
+        state = deadline.difference(DateTime.now());
       },
     );
   }
