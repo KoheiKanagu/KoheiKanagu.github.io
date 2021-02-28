@@ -1,8 +1,8 @@
-import 'package:KoheiKanagu_github_io/pages/playground/pages/animations/detail1_page.dart';
-import 'package:KoheiKanagu_github_io/pages/playground/pages/animations/detail2_page.dart';
-import 'package:KoheiKanagu_github_io/pages/playground/playground_page.dart';
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:koheikanagu_github_io/pages/playground/pages/animations/detail1_page.dart';
+import 'package:koheikanagu_github_io/pages/playground/pages/animations/detail2_page.dart';
+import 'package:koheikanagu_github_io/pages/playground/playground_page.dart';
 
 class AnimationsPage extends StatelessWidget {
   const AnimationsPage({Key key}) : super(key: key);

@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:KoheiKanagu_github_io/util/logger.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
+import 'package:koheikanagu_github_io/util/logger.dart';
 
 class LoginNotifier extends ChangeNotifier {
   LoginNotifier() : super() {

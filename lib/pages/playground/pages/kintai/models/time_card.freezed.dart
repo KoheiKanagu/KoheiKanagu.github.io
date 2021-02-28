@@ -8,6 +8,7 @@ part of 'time_card.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
 TimeCard _$TimeCardFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType'] as String) {
     case 'default':
@@ -72,6 +73,7 @@ mixin _$TimeCard {
     @required Result undefined(),
     @required Result error(),
   });
+
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>(
     Result $default(
@@ -84,6 +86,7 @@ mixin _$TimeCard {
     Result error(),
     @required Result orElse(),
   });
+
   @optionalTypeArgs
   Result map<Result extends Object>(
     Result $default(_TimeCard value), {
@@ -91,6 +94,7 @@ mixin _$TimeCard {
     @required Result undefined(_Undefined value),
     @required Result error(_Error value),
   });
+
   @optionalTypeArgs
   Result maybeMap<Result extends Object>(
     Result $default(_TimeCard value), {
@@ -99,6 +103,7 @@ mixin _$TimeCard {
     Result error(_Error value),
     @required Result orElse(),
   });
+
   Map<String, dynamic> toJson();
 }
 
@@ -111,6 +116,7 @@ class _$TimeCardCopyWithImpl<$Res> implements $TimeCardCopyWith<$Res> {
   _$TimeCardCopyWithImpl(this._value, this._then);
 
   final TimeCard _value;
+
   // ignore: unused_field
   final $Res Function(TimeCard) _then;
 }
@@ -118,6 +124,7 @@ class _$TimeCardCopyWithImpl<$Res> implements $TimeCardCopyWith<$Res> {
 abstract class _$TimeCardCopyWith<$Res> {
   factory _$TimeCardCopyWith(_TimeCard value, $Res Function(_TimeCard) then) =
       __$TimeCardCopyWithImpl<$Res>;
+
   $Res call(
       {String uid,
       @jsonKeyTimestamp DateTime today,
@@ -307,12 +314,16 @@ abstract class _TimeCard implements TimeCard {
   factory _TimeCard.fromJson(Map<String, dynamic> json) = _$_TimeCard.fromJson;
 
   String get uid;
+
   @jsonKeyTimestamp
   DateTime get today;
+
   @jsonKeyTimestamp
   DateTime get punchInTime;
+
   @jsonKeyTimestamp
   DateTime get punchOutTime;
+
   _$TimeCardCopyWith<_TimeCard> get copyWith;
 }
 

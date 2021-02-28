@@ -1,6 +1,6 @@
-import 'package:KoheiKanagu_github_io/pages/home/home_page.dart';
-import 'package:KoheiKanagu_github_io/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:koheikanagu_github_io/pages/home/home_page.dart';
+import 'package:koheikanagu_github_io/routes.dart';
 
 void main() => runApp(MyApp());
 

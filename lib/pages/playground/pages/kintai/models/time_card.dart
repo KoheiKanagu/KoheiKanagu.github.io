@@ -1,10 +1,9 @@
-import 'package:KoheiKanagu_github_io/util/converter/timestamp_support.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:koheikanagu_github_io/util/converter/timestamp_support.dart';
 
 part 'time_card.freezed.dart';
-
 part 'time_card.g.dart';
 
 @freezed

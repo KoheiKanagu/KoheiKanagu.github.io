@@ -1,8 +1,8 @@
-import 'package:KoheiKanagu_github_io/pages/playground/pages/animations/animations_page.dart';
-import 'package:KoheiKanagu_github_io/pages/playground/pages/countdown/countdown_page.dart';
-import 'package:KoheiKanagu_github_io/pages/playground/pages/kintai/kintai_page.dart';
-import 'package:KoheiKanagu_github_io/pages/playground/widgets/login_form.dart';
 import 'package:flutter/material.dart';
+import 'package:koheikanagu_github_io/pages/playground/pages/animations/animations_page.dart';
+import 'package:koheikanagu_github_io/pages/playground/pages/countdown/countdown_page.dart';
+import 'package:koheikanagu_github_io/pages/playground/pages/kintai/kintai_page.dart';
+import 'package:koheikanagu_github_io/pages/playground/widgets/login_form.dart';
 
 class PlayGroundPage extends StatelessWidget {
   const PlayGroundPage({Key key}) : super(key: key);
