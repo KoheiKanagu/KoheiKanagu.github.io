@@ -34,8 +34,8 @@ class HomePage extends StatelessWidget {
                     ..._buildLinkCards(),
                     Container(height: 32),
                     ..._buildProfileCard(),
-                    // Container(height: 32),
-                    // _buildPlaygroundCard(context),
+                    Container(height: 32),
+                    _buildPlaygroundCard(context),
                   ],
                 ),
               ),
@@ -112,7 +112,14 @@ class HomePage extends StatelessWidget {
         leading: const Icon(Icons.category),
         trailing: const Icon(Icons.navigate_next),
         title: const Text('Playground'),
-        onTap: () => Navigator.pushNamed(context, PlayGroundPage.routeName),
+        onTap: () => Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => const PlayGroundPage(),
+            settings: const RouteSettings(
+              name: PlayGroundPage.routeName,
+            ),
+          ),
+        ),
       ),
     );
   }
