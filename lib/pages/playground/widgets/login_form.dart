@@ -96,7 +96,10 @@ class _LoginForm extends HookWidget {
                 icon: Icon(Icons.account_box),
               ),
               controller: _emailCtrl,
-              enabled: useProvider(loginNotifier.state) == null,
+              enabled: useProvider(loginNotifier.state).maybeWhen(
+                orElse: () => false,
+                data: (_) => true,
+              ),
               validator: (v) =>
                   EmailValidator.validate(v) ? null : '不正なメールアドレス',
             ),

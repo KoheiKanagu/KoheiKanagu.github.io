@@ -6,11 +6,6 @@ class TimestampField {
   static const updatedAt = 'updatedAt';
 }
 
-DateTime timestampToDateTime(Timestamp timestamp) => timestamp?.toDate();
-
-Timestamp dateTimeToTimestamp(DateTime dateTime) =>
-    dateTime == null ? null : Timestamp.fromDate(dateTime);
-
 Map<String, dynamic> updateTimestamps(
   Map<String, dynamic> json,
 ) =>
@@ -18,19 +13,13 @@ Map<String, dynamic> updateTimestamps(
       ..putIfAbsent(TimestampField.createdAt, FieldValue.serverTimestamp)
       ..[TimestampField.updatedAt] = FieldValue.serverTimestamp();
 
-const jsonKeyTimestamp = JsonKey(
-  fromJson: timestampToDateTime,
-  toJson: dateTimeToTimestamp,
-);
-
-class TimestampConverter implements JsonConverter<DateTime, Timestamp> {
-  @override
-  DateTime fromJson(Timestamp json) => timestampToDateTime(json);
+class DatetimeTimestampConverter implements JsonConverter<DateTime, Timestamp> {
+  const DatetimeTimestampConverter();
 
   @override
-  Timestamp toJson(DateTime object) => dateTimeToTimestamp(object);
-}
+  DateTime fromJson(Timestamp json) => json?.toDate();
 
-extension TimestampExtension on Timestamp {
-  String toIso8601String() => toDate().toIso8601String();
+  @override
+  Timestamp toJson(DateTime json) =>
+      json == null ? null : Timestamp.fromDate(json);
 }
