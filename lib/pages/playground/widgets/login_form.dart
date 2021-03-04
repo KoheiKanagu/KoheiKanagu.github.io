@@ -28,7 +28,7 @@ class _LoginButton extends StatelessWidget {
     this._emailCtrl,
     this._passCtrl,
     this._formKey, {
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   final TextEditingController _emailCtrl;
@@ -52,7 +52,7 @@ class _LoginButton extends StatelessWidget {
     return MaterialButton(
       color: Theme.of(context).primaryColor,
       onPressed: () async {
-        if (_formKey.currentState.validate()) {
+        if (_formKey.currentState!.validate()) {
           final result = await context
               .read(loginNotifier)
               .login(_emailCtrl.text, _passCtrl.text);
@@ -75,7 +75,7 @@ class _LoginForm extends HookWidget {
     this._emailCtrl,
     this._passCtrl,
     this._formKey, {
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   final TextEditingController _emailCtrl;
@@ -101,7 +101,7 @@ class _LoginForm extends HookWidget {
                 data: (_) => true,
               ),
               validator: (v) =>
-                  EmailValidator.validate(v) ? null : '不正なメールアドレス',
+                  EmailValidator.validate(v!) ? null : '不正なメールアドレス',
             ),
             TextFormField(
               decoration: const InputDecoration(
@@ -111,7 +111,7 @@ class _LoginForm extends HookWidget {
               obscureText: true,
               controller: _passCtrl,
               enabled: useProvider(loginNotifier.state) == null,
-              validator: (v) => v.isEmpty ? '空欄' : null,
+              validator: (v) => v!.isEmpty ? '空欄' : null,
             ),
           ],
         ));

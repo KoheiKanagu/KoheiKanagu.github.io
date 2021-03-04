@@ -18,7 +18,7 @@ class Countdown extends StateNotifier<Duration> {
 
   static final DateTime deadline = DateTime(2020, 12, 31, 23, 59);
 
-  Timer _timer;
+  Timer? _timer;
 
   @override
   void dispose() {

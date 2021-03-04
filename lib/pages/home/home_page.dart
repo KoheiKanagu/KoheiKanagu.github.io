@@ -4,7 +4,7 @@ import 'package:koheikanagu_github_io/pages/playground/playground_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({Key key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
 
   static const routeName = '/';
 

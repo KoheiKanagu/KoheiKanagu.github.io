@@ -5,7 +5,7 @@ import 'package:koheikanagu_github_io/pages/playground/pages/countdown/models/co
 import 'package:koheikanagu_github_io/pages/playground/playground_page.dart';
 
 class CountdownPage extends StatelessWidget {
-  const CountdownPage({Key key}) : super(key: key);
+  const CountdownPage({Key? key}) : super(key: key);
 
   static const routeName = '${PlayGroundPage.routeName}/countdown';
 
@@ -44,7 +44,7 @@ class CountdownPage extends StatelessWidget {
 class LeftTime extends HookWidget {
   @override
   Widget build(BuildContext context) {
-    final value = useProvider(countdownProvider.state);
+    final value = useProvider(countdownProvider!.state);
 
     final text = '${value.inDays}日'
         "${value.inHours?.remainder(24).toString().padLeft(2, "0")}:"
@@ -64,6 +64,6 @@ class LeftTime extends HookWidget {
   }
 }
 
-final countdownProvider = StateNotifierProvider.autoDispose(
+final AutoDisposeStateNotifierProvider<Countdown>? countdownProvider = StateNotifierProvider.autoDispose(
   (ref) => Countdown(),
 );

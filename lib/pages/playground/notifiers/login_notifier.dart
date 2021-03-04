@@ -18,7 +18,7 @@ class LoginNotifier extends StateNotifier<AsyncValue<User>> {
 
   final FirebaseAuth firebaseAuth;
 
-  StreamSubscription<User> _onAuthStateStream;
+  StreamSubscription<User?>? _onAuthStateStream;
 
   @override
   void dispose() {

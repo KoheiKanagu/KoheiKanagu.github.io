@@ -5,7 +5,7 @@ import 'package:koheikanagu_github_io/pages/playground/pages/animations/detail2_
 import 'package:koheikanagu_github_io/pages/playground/playground_page.dart';
 
 class AnimationsPage extends StatelessWidget {
-  const AnimationsPage({Key key}) : super(key: key);
+  const AnimationsPage({Key? key}) : super(key: key);
 
   static const routeName = '${PlayGroundPage.routeName}/animations';
 

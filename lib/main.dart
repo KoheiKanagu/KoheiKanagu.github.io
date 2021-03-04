@@ -27,7 +27,7 @@ Future<void> main() async {
 }
 
 class MyApp extends StatefulHookWidget {
-  const MyApp({Key key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   _MyAppState createState() => _MyAppState();
@@ -55,13 +55,13 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   void initState() {
-    WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance!.addObserver(this);
     super.initState();
   }
 
   @override
   void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
+    WidgetsBinding.instance!.removeObserver(this);
     super.dispose();
   }
 
@@ -143,7 +143,7 @@ extension LoggerExtension on Logger {
     logger.d(message, object, stackTrace);
   }
 
-  void info(String message, dynamic object, StackTrace stackTrace) {
+  void info(String message, dynamic object, StackTrace? stackTrace) {
     logger.i(message, object, stackTrace);
   }
 
@@ -169,5 +169,5 @@ class _ConsoleOutputWithCrashlytics extends LogOutput {
 }
 
 final myRouterProvider = Provider<MyRouter>(
-  (ref) => MyRouter(ref.read),
+  (ref) => MyRouter(ref.read as T Function<T>(RootProvider<Object, T>)),
 );

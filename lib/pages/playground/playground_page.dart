@@ -4,7 +4,7 @@ import 'package:koheikanagu_github_io/pages/playground/pages/countdown/countdown
 import 'package:koheikanagu_github_io/pages/playground/widgets/login_form.dart';
 
 class PlayGroundPage extends StatelessWidget {
-  const PlayGroundPage({Key key}) : super(key: key);
+  const PlayGroundPage({Key? key}) : super(key: key);
 
   static const routeName = '/play_ground';
 

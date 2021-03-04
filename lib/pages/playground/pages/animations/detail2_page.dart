@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class Detail2Page extends StatelessWidget {
   const Detail2Page({
-    Key key,
-    @required this.openContainer,
+    Key? key,
+    required this.openContainer,
   }) : super(key: key);
 
   static const routeName = '/detail_2';
