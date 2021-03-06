@@ -14,101 +14,94 @@ class HomePage extends StatelessWidget {
   final String email = 'kanagu@kingu.dev';
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: CustomScrollView(
-          slivers: <Widget>[
-            SliverAppBar(
-              pinned: true,
-              floating: true,
-              snap: true,
-              expandedHeight: 256,
-              flexibleSpace: nyan,
-            ),
-            SliverPadding(
-              padding: const EdgeInsets.all(12),
-              sliver: SliverList(
-                delegate: SliverChildListDelegate.fixed(
-                  [
-                    ..._buildLinkCards(),
-                    Container(height: 32),
-                    ..._buildProfileCard(),
-                    Container(height: 32),
-                    _buildPlaygroundCard(context),
-                  ],
-                ),
-              ),
-            ),
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          leading: nyan,
+        ),
+        body: ListView(
+          children: [
+            ..._buildLinkCards(),
+            const Divider(),
+            ..._buildAppTiles(),
+            const Divider(),
+            ..._buildProfileCard(),
+            const Divider(),
+            _buildPlaygroundCard(context),
           ],
         ),
-      ),
-    );
-  }
+      );
+
+  List<Widget> _buildAppTiles() => [
+        _buildLinkTile(
+          FontAwesomeIcons.appStoreIos,
+          'App Store',
+          'https://apps.apple.com/am/developer/id1530720615',
+        ),
+        _buildLinkTile(
+          FontAwesomeIcons.googlePlay,
+          'Google Play',
+          'https://play.google.com/store/apps/developer?id=Kohei+Kanagu',
+        ),
+      ];
 
   List<Widget> _buildProfileCard() => [
-        const Card(
-          child: ListTile(
-            title: Text('Kohei Kanagu'),
-            subtitle: Text('金具 浩平'),
-            leading: Icon(Icons.tag_faces),
-          ),
+        const ListTile(
+          title: Text('Kohei Kanagu'),
+          subtitle: Text('金具 浩平'),
+          leading: Icon(Icons.tag_faces),
         ),
-        Card(
-          child: ListTile(
-            title: Text(email),
-            leading: const Icon(Icons.mail),
-            trailing: const Icon(Icons.send),
-            onTap: () => launch('mailto:$email'),
-          ),
+        ListTile(
+          title: Text(email),
+          leading: const Icon(Icons.mail),
+          trailing: const Icon(Icons.send),
+          onTap: () => launch('mailto:$email'),
         ),
-        Card(
-          child: ListTile(
-            title: const Text('このサイト'),
-            subtitle: Text(sourceUrl),
-            leading: const Icon(Icons.code),
-            trailing: const Icon(Icons.open_in_new),
-            onTap: () => launch(sourceUrl),
-          ),
+        ListTile(
+          title: const Text('このサイト'),
+          subtitle: Text(sourceUrl),
+          leading: const Icon(Icons.code),
+          trailing: const Icon(Icons.open_in_new),
+          onTap: () => launch(sourceUrl),
         ),
       ];
 
   List<Widget> _buildLinkCards() => [
-        _buildLinkCard(
+        _buildLinkTile(
           FontAwesomeIcons.github,
+          'GitHub',
           'https://github.com/KoheiKanagu',
         ),
-        _buildLinkCard(
+        _buildLinkTile(
           FontAwesomeIcons.solidQuestionCircle,
+          'Qiita',
           'https://qiita.com/KoheiKanagu',
         ),
-        _buildLinkCard(
+        _buildLinkTile(
           FontAwesomeIcons.facebook,
+          'Facebook',
           'https://www.facebook.com/k.g.kohei',
         ),
-        _buildLinkCard(
+        _buildLinkTile(
           FontAwesomeIcons.steam,
+          'Steam',
           'https://steamcommunity.com/id/i_am_kingu',
         ),
       ];
 
-  Widget _buildLinkCard(
+  Widget _buildLinkTile(
     IconData iconData,
+    String title,
     String link,
-  ) {
-    return Card(
-      child: ListTile(
+  ) =>
+      ListTile(
         leading: Icon(iconData),
         trailing: const Icon(Icons.open_in_new),
-        title: Text(link),
+        title: Text(title),
+        subtitle: Text(link),
         onTap: () => launch(link),
-      ),
-    );
-  }
+      );
 
-  Widget _buildPlaygroundCard(BuildContext context) {
-    return Card(
-      child: ListTile(
+  Widget _buildPlaygroundCard(BuildContext context) => ListTile(
         leading: const Icon(Icons.category),
         trailing: const Icon(Icons.navigate_next),
         title: const Text('Playground'),
@@ -120,7 +113,5 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
-  }
+      );
 }
