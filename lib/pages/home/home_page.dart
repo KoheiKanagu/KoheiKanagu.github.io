@@ -16,7 +16,14 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          leading: nyan,
+          leading: ElevatedButton(
+            onPressed: () => launch('https://youtu.be/QH2-TGUlwu4'),
+            style: ElevatedButton.styleFrom(
+              primary: Theme.of(context).primaryColor,
+              elevation: 0,
+            ),
+            child: nyan,
+          ),
         ),
         body: ListView(
           children: [
