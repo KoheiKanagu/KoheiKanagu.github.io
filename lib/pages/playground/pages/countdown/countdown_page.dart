@@ -4,14 +4,14 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:koheikanagu_github_io/pages/playground/pages/countdown/models/countdown.dart';
 import 'package:koheikanagu_github_io/pages/playground/playground_page.dart';
 
-class CountdownPage extends StatelessWidget {
+class CountdownPage extends HookWidget {
   const CountdownPage({Key? key}) : super(key: key);
 
   static const routeName = '${PlayGroundPage.routeName}/countdown';
 
   @override
   Widget build(BuildContext context) {
-    final dl = Countdown.deadline;
+    final dl = useProvider(countdownProvider).deadline;
 
     return Scaffold(
       appBar: AppBar(
@@ -29,7 +29,8 @@ class CountdownPage extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 68),
               ),
               Text(
-                '${dl.year}年${dl.month}月${dl.day}日${dl.hour}時の提出期限まであと',
+                '${dl.year}年${dl.month}月${dl.day}日'
+                '${dl.hour}時${dl.minute}分${dl.second}秒まであと',
                 style: const TextStyle(fontSize: 48),
               ),
               LeftTime(),

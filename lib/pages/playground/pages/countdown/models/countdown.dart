@@ -1,28 +1,34 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class Countdown extends StateNotifier<Duration> {
   Countdown() : super(const Duration()) {
-    if (deadline.difference(DateTime.now()).isNegative) {
-      return;
-    }
+    final random = Random();
+
+    deadline = DateTime.now().add(
+      Duration(
+        days: random.nextInt(30),
+        hours: random.nextInt(24),
+        minutes: random.nextInt(60),
+        seconds: random.nextInt(60),
+      ),
+    );
 
     _timer = Timer.periodic(
       const Duration(milliseconds: 1),
-      (_) {
-        state = deadline.difference(DateTime.now());
-      },
+      (_) => state = deadline.difference(DateTime.now()),
     );
   }
 
-  static final DateTime deadline = DateTime(2020, 12, 31, 23, 59);
+  late DateTime deadline;
 
-  Timer? _timer;
+  late Timer _timer;
 
   @override
   void dispose() {
     super.dispose();
-    _timer?.cancel();
+    _timer.cancel();
   }
 }
