@@ -13,7 +13,6 @@ class PlayGroundPage extends StatelessWidget {
       appBar: AppBar(),
       body: ListView(
         children: <Widget>[
-          // LoginForm(),
           ListTile(
             title: const Text(AnimationsPage.routeName),
             onTap: () => Navigator.of(context).push(
@@ -36,10 +35,6 @@ class PlayGroundPage extends StatelessWidget {
               ),
             ),
           ),
-          // ListTile(
-          //   title: const Text(KintaiPage.routeName),
-          //   onTap: () => Navigator.pushNamed(context, KintaiPage.routeName),
-          // ),
         ],
       ),
     );
