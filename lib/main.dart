@@ -169,5 +169,5 @@ class _ConsoleOutputWithCrashlytics extends LogOutput {
 }
 
 final myRouterProvider = Provider<MyRouter>(
-  (ref) => MyRouter(ref.read as T Function<T>(RootProvider<Object, T>)),
+  (ref) => MyRouter(ref.read),
 );
