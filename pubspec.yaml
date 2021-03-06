@@ -9,32 +9,32 @@ environment:
   sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
+  animations: ^2.0.0
+  cloud_firestore: ^1.0.0
+  email_validator: ^2.0.0-nullsafety
   firebase_auth: ^1.0.0
   firebase_core: ^1.0.0
-  cloud_firestore: ^1.0.0
-  font_awesome_flutter: ^9.0.0-nullsafety
-  url_launcher: ^6.0.1
-  email_validator: ^2.0.0-nullsafety
-  freezed_annotation: any
-  animations: ^2.0.0
-  json_annotation: any
-  hooks_riverpod: ^0.13.1
-  gap: ^2.0.0-nullsafety.1
-  logger: ^1.0.0-nullsafety.0
-  flutter_hooks: ^0.16.0
   flutter:
     sdk: flutter
+  flutter_hooks: ^0.16.0
   flutter_localizations:
     sdk: flutter
+  font_awesome_flutter: ^9.0.0-nullsafety
+  freezed_annotation: any
+  gap: ^2.0.0-nullsafety.1
+  hooks_riverpod: ^0.13.1
   intl: any
+  json_annotation: any
+  logger: ^1.0.0-nullsafety.0
+  url_launcher: ^6.0.1
 
 dev_dependencies:
-  freezed: ^0.14.0
-  json_serializable: ^4.0.2
   build_runner: any
-  pedantic_mono: any
   flutter_test:
     sdk: flutter
+  freezed: ^0.14.0
+  json_serializable: ^4.0.2
+  pedantic_mono: any
 
 
 flutter:
