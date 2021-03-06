@@ -15,7 +15,7 @@ class Detail1Page extends StatelessWidget {
     return Container(
       color: Colors.red,
       child: Center(
-        child: RaisedButton(
+        child: ElevatedButton(
           onPressed: openContainer,
           child: const Text('Back'),
         ),
