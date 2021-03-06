@@ -22,8 +22,8 @@ class AnimationsPage extends StatelessWidget {
         },
         closedBuilder: (context, actions) {
           return FloatingActionButton(
-            child: const Icon(Icons.add),
             onPressed: actions,
+            child: const Icon(Icons.add),
           );
         },
         closedShape: const CircleBorder(),
