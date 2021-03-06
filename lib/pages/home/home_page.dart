@@ -27,11 +27,11 @@ class HomePage extends StatelessWidget {
         ),
         body: ListView(
           children: [
+            ..._buildProfileCard(),
+            const Divider(),
             ..._buildLinkCards(),
             const Divider(),
             ..._buildAppTiles(),
-            const Divider(),
-            ..._buildProfileCard(),
             const Divider(),
             _buildPlaygroundCard(context),
           ],
@@ -92,6 +92,11 @@ class HomePage extends StatelessWidget {
           FontAwesomeIcons.steam,
           'Steam',
           'https://steamcommunity.com/id/i_am_kingu',
+        ),
+        _buildLinkTile(
+          FontAwesomeIcons.solidQuestionCircle,
+          'Zenn',
+          'https://zenn.dev/kingu',
         ),
       ];
 
