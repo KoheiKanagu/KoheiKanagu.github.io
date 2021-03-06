@@ -13,13 +13,14 @@ Map<String, dynamic> updateTimestamps(
       ..putIfAbsent(TimestampField.createdAt, FieldValue.serverTimestamp)
       ..[TimestampField.updatedAt] = FieldValue.serverTimestamp();
 
-class DatetimeTimestampConverter implements JsonConverter<DateTime, Timestamp> {
+class DatetimeTimestampConverter
+    implements JsonConverter<DateTime?, Timestamp?> {
   const DatetimeTimestampConverter();
 
   @override
-  DateTime fromJson(Timestamp json) => json?.toDate();
+  DateTime? fromJson(Timestamp? json) => json?.toDate();
 
   @override
-  Timestamp toJson(DateTime json) =>
-      json == null ? null : Timestamp.fromDate(json);
+  Timestamp? toJson(DateTime? object) =>
+      object == null ? null : Timestamp.fromDate(object);
 }
