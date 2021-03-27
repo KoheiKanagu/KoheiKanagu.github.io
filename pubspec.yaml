@@ -10,30 +10,30 @@ environment:
 
 dependencies:
   animations: ^2.0.0
-  cloud_firestore: ^1.0.0
-  email_validator: ^2.0.0-nullsafety
-  firebase_auth: ^1.0.0
-  firebase_core: ^1.0.0
+  cloud_firestore: ^1.0.3
+  email_validator: ^2.0.1
+  firebase_auth: ^1.0.1
+  firebase_core: ^1.0.2
   flutter:
     sdk: flutter
   flutter_hooks: ^0.16.0
   flutter_localizations:
     sdk: flutter
-  font_awesome_flutter: ^9.0.0-nullsafety
+  font_awesome_flutter: ^9.0.0
   freezed_annotation: any
   gap: ^2.0.0-nullsafety.1
-  hooks_riverpod: ^0.13.1
+  hooks_riverpod: ^0.13.1+1
   intl: any
   json_annotation: any
-  logger: ^1.0.0-nullsafety.0
+  logger: ^1.0.0
   url_launcher: ^6.0.1
 
 dev_dependencies:
   build_runner: any
   flutter_test:
     sdk: flutter
-  freezed: ^0.14.0
-  json_serializable: ^4.0.2
+  freezed: ^0.14.1+1
+  json_serializable: ^4.1.0
   pedantic_mono: any
 
 
