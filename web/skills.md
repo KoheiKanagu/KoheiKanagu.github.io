@@ -2,8 +2,8 @@
 
 ## アプリ開発
 
-- iOS: ⭐
-- Android: ⭐⭐
+- iOS: ⭐⭐⭐⭐
+- Android: ⭐⭐⭐⭐
 - Flutter: ⭐⭐⭐⭐⭐
 
 ## 言語
