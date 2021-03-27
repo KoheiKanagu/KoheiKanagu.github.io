@@ -19,10 +19,12 @@ dependencies:
   flutter_hooks: ^0.16.0
   flutter_localizations:
     sdk: flutter
+  flutter_markdown: ^0.6.1
   font_awesome_flutter: ^9.0.0
   freezed_annotation: any
   gap: ^2.0.0-nullsafety.1
   hooks_riverpod: ^0.13.1+1
+  http: ^0.13.1
   intl: any
   json_annotation: any
   logger: ^1.0.0

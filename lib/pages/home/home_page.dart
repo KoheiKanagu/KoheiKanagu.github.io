@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:koheikanagu_github_io/pages/playground/playground_page.dart';
+import 'package:koheikanagu_github_io/pages/skills/skills_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatelessWidget {
@@ -27,7 +28,7 @@ class HomePage extends StatelessWidget {
         ),
         body: ListView(
           children: [
-            ..._buildProfileCard(),
+            ..._buildProfileCard(context),
             const Divider(),
             ..._buildLinkCards(),
             const Divider(),
@@ -51,7 +52,7 @@ class HomePage extends StatelessWidget {
         ),
       ];
 
-  List<Widget> _buildProfileCard() => [
+  List<Widget> _buildProfileCard(BuildContext context) => [
         const ListTile(
           title: Text('Kohei Kanagu'),
           subtitle: Text('金具 浩平'),
@@ -70,6 +71,21 @@ class HomePage extends StatelessWidget {
           trailing: const Icon(Icons.open_in_new),
           onTap: () => launch(sourceUrl),
         ),
+        ListTile(
+          title: const Text('スキル'),
+          leading: const Icon(Icons.star),
+          trailing: const Icon(Icons.navigate_next),
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => const SkillsPage(),
+                settings: const RouteSettings(
+                  name: SkillsPage.routeName,
+                ),
+              ),
+            );
+          },
+        )
       ];
 
   List<Widget> _buildLinkCards() => [
