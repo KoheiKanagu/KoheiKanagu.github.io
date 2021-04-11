@@ -3,22 +3,22 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/assets/images/nyan.gif": "1a0d759837911e89a318c2266249ba5d",
-"assets/AssetManifest.json": "8cbfa51747e43c8f950e263a7aa3b944",
-"assets/packages/font_awesome_flutter/lib/fonts/fa-regular-400.ttf": "4b6a9b7c20913279a3ad3dd9c96e155b",
-"assets/packages/font_awesome_flutter/lib/fonts/fa-solid-900.ttf": "dffd9504fcb1894620fa41c700172994",
-"assets/packages/font_awesome_flutter/lib/fonts/fa-brands-400.ttf": "00bb2b684be61e89d1bc7d75dee30b58",
-"assets/FontManifest.json": "3ddd9b2ab1c2ae162d46e3cc7b78ba88",
-"assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
-"assets/NOTICES": "13b9a0fe706a3c78e5d5ad03cc859357",
-"favicon.png": "5dcef449791fa27946b3d35ad8803796",
-"main.dart.js": "82314a44ac1da3e0cfe884f13d9f0607",
-"skills.md": "f95b94e40db93397b12a6aabd194d30a",
-"index.html": "495cbbd958a37a74c40ada2a07caee9e",
-"/": "495cbbd958a37a74c40ada2a07caee9e",
-"manifest.json": "e7fde732309aae402425a89eb3c82413",
-"icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
+  "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
+"favicon.png": "5dcef449791fa27946b3d35ad8803796",
+"manifest.json": "e7fde732309aae402425a89eb3c82413",
+"index.html": "bd2ef081676fe2628e2cfb0d60bc512b",
+"/": "bd2ef081676fe2628e2cfb0d60bc512b",
+"assets/packages/font_awesome_flutter/lib/fonts/fa-solid-900.ttf": "dffd9504fcb1894620fa41c700172994",
+"assets/packages/font_awesome_flutter/lib/fonts/fa-regular-400.ttf": "4b6a9b7c20913279a3ad3dd9c96e155b",
+"assets/packages/font_awesome_flutter/lib/fonts/fa-brands-400.ttf": "00bb2b684be61e89d1bc7d75dee30b58",
+"assets/NOTICES": "13b9a0fe706a3c78e5d5ad03cc859357",
+"assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
+"assets/AssetManifest.json": "8cbfa51747e43c8f950e263a7aa3b944",
+"assets/assets/images/nyan.gif": "1a0d759837911e89a318c2266249ba5d",
+"assets/FontManifest.json": "3ddd9b2ab1c2ae162d46e3cc7b78ba88",
+"main.dart.js": "8504daff6d761728db09e4bac068c6d0",
+"skills.md": "205e7a342545af55a67b38538513e1a9",
 "version.json": "6f47a26ecde6e9de96178436648b2bee"
 };
 
