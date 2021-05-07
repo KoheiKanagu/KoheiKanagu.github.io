@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:koheikanagu_github_io/pages/playground/playground_page.dart';
-import 'package:koheikanagu_github_io/pages/skills/skills_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,6 +12,8 @@ class HomePage extends StatelessWidget {
   final String sourceUrl =
       'https://github.com/KoheiKanagu/KoheiKanagu.github.io';
   final String email = 'kanagu@kingu.dev';
+  final String workUrl =
+      'https://github.com/KoheiKanagu/KoheiKanagu.github.io/blob/develop/web/work.md';
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -72,20 +73,11 @@ class HomePage extends StatelessWidget {
           onTap: () => launch(sourceUrl),
         ),
         ListTile(
-          title: const Text('スキル'),
-          leading: const Icon(Icons.star),
-          trailing: const Icon(Icons.navigate_next),
-          onTap: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (_) => const SkillsPage(),
-                settings: const RouteSettings(
-                  name: SkillsPage.routeName,
-                ),
-              ),
-            );
-          },
-        )
+          title: const Text('お仕事募集中'),
+          leading: const Icon(Icons.work),
+          trailing: const Icon(Icons.open_in_new),
+          onTap: () => launch(workUrl),
+        ),
       ];
 
   List<Widget> _buildLinkCards() => [
