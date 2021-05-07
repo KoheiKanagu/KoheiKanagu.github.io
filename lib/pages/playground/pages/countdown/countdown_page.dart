@@ -45,7 +45,7 @@ class CountdownPage extends HookWidget {
 class LeftTime extends HookWidget {
   @override
   Widget build(BuildContext context) {
-    final value = useProvider(countdownProvider.state);
+    final value = useProvider(countdownProvider);
 
     final text = '${value.inDays}日'
         "${value.inHours.remainder(24).toString().padLeft(2, "0")}:"
@@ -65,7 +65,6 @@ class LeftTime extends HookWidget {
   }
 }
 
-final AutoDisposeStateNotifierProvider<Countdown> countdownProvider =
-    StateNotifierProvider.autoDispose(
+final countdownProvider = StateNotifierProvider.autoDispose(
   (ref) => Countdown(),
 );
