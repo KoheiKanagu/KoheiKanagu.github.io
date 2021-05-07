@@ -11,7 +11,7 @@ class CountdownPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dl = useProvider(countdownProvider).deadline;
+    final dl = useProvider(countdownProvider.notifier).deadline;
 
     return Scaffold(
       appBar: AppBar(
@@ -65,6 +65,7 @@ class LeftTime extends HookWidget {
   }
 }
 
-final countdownProvider = StateNotifierProvider.autoDispose(
+final countdownProvider =
+    StateNotifierProvider.autoDispose<Countdown, Duration>(
   (ref) => Countdown(),
 );
