@@ -1,5 +1,7 @@
 # お仕事募集中
 
+ご連絡はこちらまでお願いします [kanagu@kingu.dev](mailto:kanagu@kingu.dev)
+
 ## できること
 
 ### Flutterを用いたiOSとAndroidアプリの開発
@@ -7,6 +9,11 @@
 - Flutterは1.0リリース頃から触れており、iOS/Androidアプリのリプレイスや新規アプリの開発経験などがある。
 - ここ1年は業務でFlutterアプリの開発を中心に行っている。
 - SwiftやJavaを用いたiOS/Androidアプリの開発経験もあるため、iOS/Androidネイティブのトラブルシュートも可能なレベル。
+
+#### 参考
+
+- [App Store](https://apps.apple.com/am/developer/id1530720615)
+- [Google Play](https://play.google.com/store/apps/developer?id=Kohei+Kanagu)
 
 ### Firebase関連
 
