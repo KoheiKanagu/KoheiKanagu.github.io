@@ -14,6 +14,7 @@
 
 - [App Store](https://apps.apple.com/am/developer/id1530720615)
 - [Google Play](https://play.google.com/store/apps/developer?id=Kohei+Kanagu)
+- その他業務での開発なのでプライベート
 
 ### Firebase関連
 
