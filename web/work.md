@@ -6,9 +6,10 @@
 
 ### Flutterを用いたiOSとAndroidアプリの開発
 
-- Flutterは1.0リリース頃から触れており、iOS/Androidアプリのリプレイスや新規アプリの開発経験などがある。
-- ここ1年は業務でFlutterアプリの開発を中心に行っている。
+- Flutterは1.0リリース頃から触れており、iOS/Androidアプリのリプレイスや新規アプリの開発経験など。
+- ここ1年は業務でFlutterアプリの開発を中心に行っています。
 - SwiftやJavaを用いたiOS/Androidアプリの開発経験もあるため、iOS/Androidネイティブのトラブルシュートも可能なレベル。
+- 最近はFlutter中心に活動していることもあり、SwiftやJavaでのiOS/Androidアプリ開発の対応は難しいです。
 
 #### 参考
 
