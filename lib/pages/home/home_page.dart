@@ -106,6 +106,11 @@ class HomePage extends StatelessWidget {
           'Zenn',
           'https://zenn.dev/kingu',
         ),
+        _buildLinkTile(
+          FontAwesomeIcons.medium,
+          'Medium',
+          'https://i-am-kingu.medium.com',
+        ),
       ];
 
   Widget _buildLinkTile(
