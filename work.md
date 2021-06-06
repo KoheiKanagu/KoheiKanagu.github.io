@@ -78,3 +78,4 @@
 ### Google Cloud Platform
 
 - [Qwiklabs](https://google.qwiklabs.com/public_profiles/98bbb4d5-74da-4dc3-a38f-912ed3b501d7)
+- [Coursera - Google Cloud Platform Fundamentals: Core Infrastructure 日本語版](https://www.coursera.org/account/accomplishments/verify/PKZC566YN7BF?utm_source=link)
