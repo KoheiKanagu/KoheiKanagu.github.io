@@ -29,7 +29,7 @@ class LoginNotifier extends StateNotifier<AsyncValue<User>> {
   Future<bool> login(String email, String password) => firebaseAuth
       .signInWithEmailAndPassword(email: email, password: password)
       .then((value) => true)
-      .catchError(() => false);
+      .catchError((_) => false);
 
   void logout() {
     firebaseAuth.signOut();

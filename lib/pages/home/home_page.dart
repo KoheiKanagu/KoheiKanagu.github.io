@@ -131,7 +131,7 @@ class HomePage extends StatelessWidget {
         trailing: const Icon(Icons.navigate_next),
         title: const Text('Playground'),
         onTap: () => Navigator.of(context).push(
-          MaterialPageRoute(
+          MaterialPageRoute<PlayGroundPage>(
             builder: (_) => const PlayGroundPage(),
             settings: const RouteSettings(
               name: PlayGroundPage.routeName,

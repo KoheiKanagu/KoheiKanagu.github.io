@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:koheikanagu_github_io/pages/playground/pages/countdown/models/countdown.dart';
 import 'package:koheikanagu_github_io/pages/playground/playground_page.dart';
 
-class CountdownPage extends HookWidget {
-  const CountdownPage({Key? key}) : super(key: key);
+class CountdownPage extends HookConsumerWidget {
+  const CountdownPage({
+    Key? key,
+  }) : super(key: key);
 
   static const routeName = '${PlayGroundPage.routeName}/countdown';
 
   @override
-  Widget build(BuildContext context) {
-    final dl = useProvider(countdownProvider.notifier).deadline;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final dl = ref.watch(countdownProvider.notifier).deadline;
 
     return Scaffold(
       appBar: AppBar(
@@ -33,7 +34,7 @@ class CountdownPage extends HookWidget {
                 '${dl.hour}時${dl.minute}分${dl.second}秒まであと',
                 style: const TextStyle(fontSize: 48),
               ),
-              LeftTime(),
+              const LeftTime(),
             ],
           ),
         ),
@@ -42,10 +43,14 @@ class CountdownPage extends HookWidget {
   }
 }
 
-class LeftTime extends HookWidget {
+class LeftTime extends HookConsumerWidget {
+  const LeftTime({
+    Key? key,
+  }) : super(key: key);
+
   @override
-  Widget build(BuildContext context) {
-    final value = useProvider(countdownProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final value = ref.watch(countdownProvider);
 
     final text = '${value.inDays}日'
         "${value.inHours.remainder(24).toString().padLeft(2, "0")}:"

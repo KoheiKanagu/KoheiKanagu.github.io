@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class Countdown extends StateNotifier<Duration> {
-  Countdown() : super(const Duration()) {
+  Countdown() : super(Duration.zero) {
     final random = Random();
 
     deadline = DateTime.now().add(

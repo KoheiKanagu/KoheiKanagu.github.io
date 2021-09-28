@@ -28,50 +28,48 @@ class AnimationsPage extends StatelessWidget {
         },
         closedShape: const CircleBorder(),
       ),
-      body: Container(
-        child: ListView(
-          children: <Widget>[
-            OpenContainer(
-              transitionType: ContainerTransitionType.fade,
-              openBuilder: (context, action) {
-                return Detail1Page(
-                  openContainer: action,
-                );
-              },
-              closedBuilder: (context, action) {
-                return ListTile(
-                  title: Text('${ContainerTransitionType.fade}'),
-                );
-              },
-            ),
-            OpenContainer(
-              transitionType: ContainerTransitionType.fadeThrough,
-              openBuilder: (context, action) {
-                return Detail1Page(
-                  openContainer: action,
-                );
-              },
-              closedBuilder: (context, action) {
-                return ListTile(
-                  title: Text('${ContainerTransitionType.fadeThrough}'),
-                );
-              },
-            ),
-            OpenContainer(
-              transitionType: ContainerTransitionType.fade,
-              openBuilder: (context, action) {
-                return Detail2Page(
-                  openContainer: action,
-                );
-              },
-              closedBuilder: (context, action) {
-                return const ListTile(
-                  title: Text('with AppBar'),
-                );
-              },
-            ),
-          ],
-        ),
+      body: ListView(
+        children: <Widget>[
+          OpenContainer(
+            transitionType: ContainerTransitionType.fade,
+            openBuilder: (context, action) {
+              return Detail1Page(
+                openContainer: action,
+              );
+            },
+            closedBuilder: (context, action) {
+              return ListTile(
+                title: Text('${ContainerTransitionType.fade}'),
+              );
+            },
+          ),
+          OpenContainer(
+            transitionType: ContainerTransitionType.fadeThrough,
+            openBuilder: (context, action) {
+              return Detail1Page(
+                openContainer: action,
+              );
+            },
+            closedBuilder: (context, action) {
+              return ListTile(
+                title: Text('${ContainerTransitionType.fadeThrough}'),
+              );
+            },
+          ),
+          OpenContainer(
+            transitionType: ContainerTransitionType.fade,
+            openBuilder: (context, action) {
+              return Detail2Page(
+                openContainer: action,
+              );
+            },
+            closedBuilder: (context, action) {
+              return const ListTile(
+                title: Text('with AppBar'),
+              );
+            },
+          ),
+        ],
       ),
     );
   }

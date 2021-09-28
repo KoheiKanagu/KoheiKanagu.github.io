@@ -16,7 +16,7 @@ class PlayGroundPage extends StatelessWidget {
           ListTile(
             title: const Text(AnimationsPage.routeName),
             onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(
+              MaterialPageRoute<AnimationsPage>(
                 builder: (_) => const AnimationsPage(),
                 settings: const RouteSettings(
                   name: AnimationsPage.routeName,
@@ -27,7 +27,7 @@ class PlayGroundPage extends StatelessWidget {
           ListTile(
             title: const Text(CountdownPage.routeName),
             onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(
+              MaterialPageRoute<AnimationsPage>(
                 builder: (_) => const CountdownPage(),
                 settings: const RouteSettings(
                   name: CountdownPage.routeName,
