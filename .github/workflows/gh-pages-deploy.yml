@@ -3,11 +3,11 @@ name: GitHub Pages Deploy
 on:
   push:
     branches:
-      - develop
+      - main
 
 env:
   FLUTTER_CHANNEL: "stable"
-  FLUTTER_VERSION: "2.0.6"
+  FLUTTER_VERSION: "2.5.1"
 
 jobs:
   build:
@@ -31,13 +31,6 @@ jobs:
         run: |
           flutter pub get
           flutter build web
-
-      - name: GitHub Pages action
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: master
-          publish_dir: ./build/web
 
       - name: Firebase Deploy
         uses: w9jds/firebase-action@v2.0.0
