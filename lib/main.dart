@@ -62,7 +62,8 @@ class MyRouter {
 
   final Reader reader;
 
-  Route<dynamic> onGenerateRoute(RouteSettings settings) => MaterialPageRoute(
+  Route<dynamic> onGenerateRoute(RouteSettings settings) =>
+      MaterialPageRoute<HomePage>(
         builder: (_) => HomePage(),
         settings: const RouteSettings(
           name: HomePage.routeName,
