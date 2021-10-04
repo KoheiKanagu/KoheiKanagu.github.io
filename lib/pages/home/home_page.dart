@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:koheikanagu_github_io/pages/playground/playground_page.dart';
@@ -24,7 +26,18 @@ class HomePage extends StatelessWidget {
               primary: Theme.of(context).primaryColor,
               elevation: 0,
             ),
-            child: nyan,
+            child: FutureBuilder(
+              builder: (context, snapshot) {
+                if (snapshot.hasData &&
+                    snapshot.connectionState == ConnectionState.done) {
+                  return CachedNetworkImage(imageUrl: snapshot.data! as String);
+                }
+                return const CircularProgressIndicator();
+              },
+              future: FirebaseStorage.instance
+                  .ref('gs://kingu-42.appspot.com/assets/nyan.gif')
+                  .getDownloadURL(),
+            ),
           ),
         ),
         body: ListView(
