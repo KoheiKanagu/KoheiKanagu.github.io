@@ -17,8 +17,8 @@ class SignInPage extends ConsumerWidget {
         children: [
           ElevatedButton(
             onPressed: () => ref.read(signProvider.notifier).signIn(
-                  'guest@kingu.dev',
-                  'guest@kingu.dev',
+                  id: 'guest@kingu.dev',
+                  password: 'guest@kingu.dev',
                 ),
             child: const Text('Sign In'),
           ),

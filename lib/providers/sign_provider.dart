@@ -34,7 +34,10 @@ class SignProvider extends StateNotifier<SignProviderState> {
   final Reader _read;
   final FirebaseAuth _auth;
 
-  Future<void> signIn(String id, String password) =>
+  Future<void> signIn({
+    required String id,
+    required String password,
+  }) =>
       _auth.signInWithEmailAndPassword(
         email: id,
         password: password,
