@@ -56,12 +56,12 @@ final myRouter = Provider<GoRouter>(
       final isSignedIn = ref.read(signProvider).isSignedIn;
       final goingToSignIn = state.subloc == '/signin';
 
-      final params = Uri.parse(state.location).queryParameters;
-      final from = params['from'] ?? '';
-
       if (!isSignedIn && !goingToSignIn) {
         return '/signin?from=${state.location}';
       }
+
+      final params = Uri.parse(state.location).queryParameters;
+      final from = params['from'] ?? '';
 
       if (isSignedIn && goingToSignIn) {
         return from.isNotEmpty && from != '/' ? from : '/';
