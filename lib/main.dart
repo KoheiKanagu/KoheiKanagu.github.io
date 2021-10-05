@@ -35,19 +35,26 @@ class MyApp extends HookConsumerWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) => MaterialApp.router(
-        theme: ThemeData(
-          primaryColor: const Color.fromRGBO(0, 164, 172, 1),
-        ),
-        localizationsDelegates: const [
-          GlobalCupertinoLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-        ],
-        supportedLocales: const [
-          Locale('ja'),
-        ],
-        routeInformationParser: ref.watch(myRouter).routeInformationParser,
-        routerDelegate: ref.watch(myRouter).routerDelegate,
-      );
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen(
+      refreshListenableProvider,
+      (_) => ref.read(myRouter).refresh(),
+    );
+
+    return MaterialApp.router(
+      theme: ThemeData(
+        primaryColor: const Color.fromRGBO(0, 164, 172, 1),
+      ),
+      localizationsDelegates: const [
+        GlobalCupertinoLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('ja'),
+      ],
+      routeInformationParser: ref.watch(myRouter).routeInformationParser,
+      routerDelegate: ref.watch(myRouter).routerDelegate,
+    );
+  }
 }

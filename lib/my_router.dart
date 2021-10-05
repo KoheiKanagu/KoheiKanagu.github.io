@@ -16,7 +16,6 @@ final myRouter = Provider<GoRouter>(
       AppLifecycleObserver(),
       FirebaseAnalyticsObserver(analytics: FirebaseAnalytics()),
     ],
-    initialLocation: '/',
     routes: [
       GoRoute(
         path: '/',
@@ -34,6 +33,15 @@ final myRouter = Provider<GoRouter>(
         ),
       ),
       GoRoute(
+        path: '/content',
+        pageBuilder: (context, state) => MaterialPage<void>(
+          key: state.pageKey,
+          child: Container(
+            color: Colors.green,
+          ),
+        ),
+      ),
+      GoRoute(
         path: '/signin',
         pageBuilder: (context, state) => MaterialPage<void>(
           key: state.pageKey,
@@ -46,20 +54,28 @@ final myRouter = Provider<GoRouter>(
     ),
     redirect: (state) {
       final isSignedIn = ref.read(signProvider).isSignedIn;
-      final goingToSignIn = state.location == '/signin';
+      final goingToSignIn = state.subloc == '/signin';
+
+      final params = Uri.parse(state.location).queryParameters;
+      final from = params['from'] ?? '';
 
       if (!isSignedIn && !goingToSignIn) {
-        return '/signin';
+        return '/signin?from=${state.location}';
       }
+
       if (isSignedIn && goingToSignIn) {
-        return '/';
+        return from.isNotEmpty && from != '/' ? from : '/';
       }
+
       return null;
     },
-    refreshListenable: Listenable.merge(
-      [
-        ValueNotifier(ref.watch(signProvider).isSignedIn),
-      ],
-    ),
+  ),
+);
+
+final refreshListenableProvider = Provider(
+  (ref) => Listenable.merge(
+    [
+      ValueNotifier(ref.watch(signProvider).isSignedIn),
+    ],
   ),
 );
