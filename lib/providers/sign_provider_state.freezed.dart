@@ -43,8 +43,6 @@ abstract class $SignProviderStateCopyWith<$Res> {
           SignProviderState value, $Res Function(SignProviderState) then) =
       _$SignProviderStateCopyWithImpl<$Res>;
   $Res call({AsyncValue<User?> firebaseUser});
-
-  $AsyncValueCopyWith<User?, $Res> get firebaseUser;
 }
 
 /// @nodoc
@@ -67,13 +65,6 @@ class _$SignProviderStateCopyWithImpl<$Res>
               as AsyncValue<User?>,
     ));
   }
-
-  @override
-  $AsyncValueCopyWith<User?, $Res> get firebaseUser {
-    return $AsyncValueCopyWith<User?, $Res>(_value.firebaseUser, (value) {
-      return _then(_value.copyWith(firebaseUser: value));
-    });
-  }
 }
 
 /// @nodoc
@@ -84,9 +75,6 @@ abstract class _$SignProviderStateCopyWith<$Res>
       __$SignProviderStateCopyWithImpl<$Res>;
   @override
   $Res call({AsyncValue<User?> firebaseUser});
-
-  @override
-  $AsyncValueCopyWith<User?, $Res> get firebaseUser;
 }
 
 /// @nodoc

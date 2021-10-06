@@ -22,8 +22,7 @@ dependencies:
   freezed_annotation: any
   gap: 2.0.0
   go_router: 1.1.3
-  hooks_riverpod: 1.0.0-dev.7
-  http: 0.13.3
+  hooks_riverpod: 1.0.0-dev.9
   intl: any
   json_annotation: any
   logger: 1.1.0
