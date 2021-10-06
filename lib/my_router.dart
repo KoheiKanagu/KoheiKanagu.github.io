@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:koheikanagu_github_io/app_lifecycle_observer.dart';
 import 'package:koheikanagu_github_io/pages/error/error_page.dart';
+import 'package:koheikanagu_github_io/pages/root/root_page.dart';
 import 'package:koheikanagu_github_io/pages/sign/sign_in_page.dart';
 import 'package:koheikanagu_github_io/providers/sign_provider.dart';
 
@@ -18,28 +19,28 @@ final myRouter = Provider<GoRouter>(
     ],
     routes: [
       GoRoute(
-        path: '/',
-        pageBuilder: (context, state) => MaterialPage<void>(
-          key: state.pageKey,
-          child: Container(
-            color: Colors.red,
-            child: ElevatedButton(
-              child: const Text('signout'),
-              onPressed: () {
-                ref.read(signProvider.notifier).signOut();
-              },
-            ),
-          ),
-        ),
+        path: RootPage.path,
+        redirect: (_) => RootPage.pagePaths.first,
       ),
       GoRoute(
-        path: '/content',
-        pageBuilder: (context, state) => MaterialPage<void>(
-          key: state.pageKey,
-          child: Container(
-            color: Colors.green,
-          ),
-        ),
+        path: '/:path',
+        redirect: (state) {
+          final index = RootPage.pagePaths.indexOf(state.subloc);
+          if (index.isNegative) {
+            throw Exception(404);
+          }
+          return null;
+        },
+        pageBuilder: (context, state) {
+          final index = RootPage.pagePaths.indexOf(state.subloc);
+          return MaterialPage<void>(
+            key: state.pageKey,
+            child: RootPage(
+              key: ValueKey(state.subloc),
+              index: index,
+            ),
+          );
+        },
       ),
       GoRoute(
         path: '/signin',
@@ -53,19 +54,19 @@ final myRouter = Provider<GoRouter>(
       child: ErrorPage(),
     ),
     redirect: (state) {
-      final isSignedIn = ref.read(signProvider).isSignedIn;
-      final goingToSignIn = state.subloc == '/signin';
+      // final isSignedIn = ref.read(signProvider).isSignedIn;
+      // final goingToSignIn = state.subloc == '/signin';
 
-      if (!isSignedIn && !goingToSignIn) {
-        return '/signin?from=${state.location}';
-      }
+      // if (!isSignedIn && !goingToSignIn) {
+      //   return '/signin?from=${state.location}';
+      // }
 
-      final params = Uri.parse(state.location).queryParameters;
-      final from = params['from'] ?? '';
+      // final params = Uri.parse(state.location).queryParameters;
+      // final from = params['from'] ?? '';
 
-      if (isSignedIn && goingToSignIn) {
-        return from.isNotEmpty && from != '/' ? from : '/';
-      }
+      // if (isSignedIn && goingToSignIn) {
+      //   return from.isNotEmpty && from != RootPage.path ? from : RootPage.path;
+      // }
 
       return null;
     },

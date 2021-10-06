@@ -7,7 +7,7 @@ class SignInPage extends ConsumerWidget {
     Key? key,
   }) : super(key: key);
 
-  static const routeName = '/sign_in_page';
+  static const path = '/signin';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
