@@ -5,8 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:koheikanagu_github_io/app_lifecycle_observer.dart';
+import 'package:koheikanagu_github_io/pages/contents/contents_page.dart';
+import 'package:koheikanagu_github_io/pages/contents/contents_private_page.dart';
+import 'package:koheikanagu_github_io/pages/contents/contents_public_page.dart';
 import 'package:koheikanagu_github_io/pages/error/error_page.dart';
-import 'package:koheikanagu_github_io/pages/root/root_page.dart';
+import 'package:koheikanagu_github_io/pages/profile/profile_page.dart';
+import 'package:koheikanagu_github_io/pages/root_page.dart';
+import 'package:koheikanagu_github_io/pages/settings/settings_page.dart';
 import 'package:koheikanagu_github_io/pages/sign/sign_in_page.dart';
 import 'package:koheikanagu_github_io/providers/sign_provider.dart';
 
@@ -23,30 +28,56 @@ final myRouter = Provider<GoRouter>(
         redirect: (_) => RootPage.pagePaths.first,
       ),
       GoRoute(
-        path: '/:path',
-        redirect: (state) {
-          final index = RootPage.pagePaths.indexOf(state.subloc);
-          if (index.isNegative) {
-            throw Exception(404);
-          }
-          return null;
-        },
-        pageBuilder: (context, state) {
-          final index = RootPage.pagePaths.indexOf(state.subloc);
-          return MaterialPage<void>(
-            key: state.pageKey,
-            child: RootPage(
-              key: ValueKey(state.subloc),
-              index: index,
-            ),
-          );
-        },
-      ),
-      GoRoute(
-        path: '/signin',
+        path: SignInPage.path,
         pageBuilder: (context, state) => MaterialPage<void>(
           key: state.pageKey,
           child: const SignInPage(),
+        ),
+      ),
+      GoRoute(
+        path: ProfilePage.path,
+        pageBuilder: (context, state) => MaterialPage<void>(
+          key: const ValueKey(RootPage.path),
+          child: RootPage(
+            key: ValueKey(state.subloc),
+            index: RootPage.pagePaths.indexOf(state.subloc),
+          ),
+        ),
+      ),
+      GoRoute(
+        path: ContentsPage.path,
+        pageBuilder: (context, state) => MaterialPage<void>(
+          key: const ValueKey(RootPage.path),
+          child: RootPage(
+            key: ValueKey(state.subloc),
+            index: RootPage.pagePaths.indexOf(state.subloc),
+          ),
+        ),
+        routes: [
+          GoRoute(
+            path: ContentsPrivatePage.path,
+            pageBuilder: (context, state) => MaterialPage<void>(
+              key: state.pageKey,
+              child: const ContentsPrivatePage(),
+            ),
+          ),
+          GoRoute(
+            path: ContentsPublicPage.path,
+            pageBuilder: (context, state) => MaterialPage<void>(
+              key: state.pageKey,
+              child: const ContentsPublicPage(),
+            ),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: SettingsPage.path,
+        pageBuilder: (context, state) => MaterialPage<void>(
+          key: const ValueKey(RootPage.path),
+          child: RootPage(
+            key: ValueKey(state.subloc),
+            index: RootPage.pagePaths.indexOf(state.subloc),
+          ),
         ),
       ),
     ],
@@ -54,19 +85,24 @@ final myRouter = Provider<GoRouter>(
       child: ErrorPage(),
     ),
     redirect: (state) {
-      // final isSignedIn = ref.read(signProvider).isSignedIn;
-      // final goingToSignIn = state.subloc == '/signin';
+      final goingToSignIn = state.subloc == SignInPage.path;
+      if (!state.subloc.startsWith(ContentsPrivatePage.location) &&
+          !goingToSignIn) {
+        return null;
+      }
 
-      // if (!isSignedIn && !goingToSignIn) {
-      //   return '/signin?from=${state.location}';
-      // }
+      final isSignedIn = ref.read(signProvider).isSignedIn;
 
-      // final params = Uri.parse(state.location).queryParameters;
-      // final from = params['from'] ?? '';
+      if (!isSignedIn && !goingToSignIn) {
+        return '${SignInPage.path}?from=${state.location}';
+      }
 
-      // if (isSignedIn && goingToSignIn) {
-      //   return from.isNotEmpty && from != RootPage.path ? from : RootPage.path;
-      // }
+      final params = Uri.parse(state.location).queryParameters;
+      final from = params['from'] ?? '';
+
+      if (isSignedIn && goingToSignIn) {
+        return from.isNotEmpty && from != RootPage.path ? from : RootPage.path;
+      }
 
       return null;
     },

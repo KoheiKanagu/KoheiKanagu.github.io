@@ -12,5 +12,10 @@ class SignProviderState with _$SignProviderState {
 
   SignProviderState._();
 
-  late final bool isSignedIn = firebaseUser.data?.value != null;
+  late final bool isSignedIn = firebaseUser.asData?.value != null;
+
+  late final String email = firebaseUser.asData?.value?.email ?? 'unknown';
+
+  late final Iterable<String> providerIds =
+      firebaseUser.asData?.value?.providerData.map((e) => e.providerId) ?? [];
 }
