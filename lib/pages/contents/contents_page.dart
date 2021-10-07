@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:koheikanagu_github_io/pages/contents/contents_private_page.dart';
@@ -18,13 +17,13 @@ class ContentsPage extends ConsumerWidget {
       body: ListView(
         children: [
           ListTile(
-            title: Text("プライベート"),
+            title: const Text('プライベート'),
             onTap: () {
               GoRouter.of(context).go(ContentsPrivatePage.location);
             },
           ),
           ListTile(
-            title: Text("パブリック"),
+            title: const Text('パブリック'),
             onTap: () {
               GoRouter.of(context).go(ContentsPublicPage.location);
             },

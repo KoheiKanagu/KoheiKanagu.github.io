@@ -13,20 +13,14 @@ class SignInPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(),
-      body: Column(
-        children: [
-          ElevatedButton(
-            onPressed: () => ref.read(signProvider.notifier).signIn(
-                  id: 'guest@kingu.dev',
-                  password: 'guest@kingu.dev',
-                ),
-            child: const Text('Sign In'),
-          ),
-          ElevatedButton(
-            onPressed: () => ref.read(signProvider.notifier).signOut(),
-            child: const Text('Sign Out'),
-          )
-        ],
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () => ref.read(signProvider.notifier).signIn(
+                id: 'guest@kingu.dev',
+                password: 'guest@kingu.dev',
+              ),
+          child: const Text('サインイン'),
+        ),
       ),
     );
   }
