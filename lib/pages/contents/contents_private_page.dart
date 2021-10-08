@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:koheikanagu_github_io/pages/contents/contents_page.dart';
 import 'package:koheikanagu_github_io/pages/root_page.dart';
-import 'package:koheikanagu_github_io/providers/sign_provider.dart';
+import 'package:koheikanagu_github_io/providers/sign/sign_provider.dart';
 
 class ContentsPrivatePage extends ConsumerWidget {
   const ContentsPrivatePage({

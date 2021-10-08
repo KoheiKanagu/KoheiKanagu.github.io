@@ -13,7 +13,7 @@ import 'package:koheikanagu_github_io/pages/profile/profile_page.dart';
 import 'package:koheikanagu_github_io/pages/root_page.dart';
 import 'package:koheikanagu_github_io/pages/settings/settings_page.dart';
 import 'package:koheikanagu_github_io/pages/sign/sign_in_page.dart';
-import 'package:koheikanagu_github_io/providers/sign_provider.dart';
+import 'package:koheikanagu_github_io/providers/sign/sign_provider.dart';
 
 final myRouter = Provider<GoRouter>(
   (ref) => GoRouter(

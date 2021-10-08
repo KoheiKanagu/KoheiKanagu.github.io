@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:koheikanagu_github_io/providers/sign_provider.dart';
+import 'package:koheikanagu_github_io/providers/sign/sign_provider.dart';
 
 class SignInPage extends ConsumerWidget {
   const SignInPage({
