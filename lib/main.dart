@@ -42,8 +42,10 @@ class MyApp extends HookConsumerWidget {
     );
 
     return MaterialApp.router(
-      theme: ThemeData(
-        primaryColor: const Color.fromRGBO(0, 164, 172, 1),
+      theme: ThemeData.from(
+        colorScheme: const ColorScheme.light(
+          primary: Color(0xFF00A4AC),
+        ),
       ),
       localizationsDelegates: const [
         GlobalCupertinoLocalizations.delegate,
