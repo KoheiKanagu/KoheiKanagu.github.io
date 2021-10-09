@@ -119,15 +119,14 @@ class _$_SignProviderState extends _SignProviderState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SignProviderState &&
+        (other.runtimeType == runtimeType &&
+            other is _SignProviderState &&
             (identical(other.firebaseUser, firebaseUser) ||
-                const DeepCollectionEquality()
-                    .equals(other.firebaseUser, firebaseUser)));
+                other.firebaseUser == firebaseUser));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(firebaseUser);
+  int get hashCode => Object.hash(runtimeType, firebaseUser);
 
   @JsonKey(ignore: true)
   @override
@@ -141,7 +140,7 @@ abstract class _SignProviderState extends SignProviderState {
   _SignProviderState._() : super._();
 
   @override
-  AsyncValue<User?> get firebaseUser => throw _privateConstructorUsedError;
+  AsyncValue<User?> get firebaseUser;
   @override
   @JsonKey(ignore: true)
   _$SignProviderStateCopyWith<_SignProviderState> get copyWith =>

@@ -97,8 +97,7 @@ final myRouter = Provider<GoRouter>(
         return '${SignInPage.path}?from=${state.location}';
       }
 
-      final params = Uri.parse(state.location).queryParameters;
-      final from = params['from'] ?? '';
+      final from = state.queryParams['from'] ?? '';
 
       if (isSignedIn && goingToSignIn) {
         return from.isNotEmpty && from != RootPage.path ? from : RootPage.path;
